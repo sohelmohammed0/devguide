@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Terraform & Infrastructure as Code</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Terraform Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Basic Commands:</h4>
+        <ul>
+            <li><code>terraform init</code> - Initialize a new or existing Terraform configuration.</li>
+            <li><code>terraform plan</code> - Create an execution plan.</li>
+            <li><code>terraform apply</code> - Apply the changes required to reach the desired state.</li>
+            <li><code>terraform destroy</code> - Destroy the Terraform-managed infrastructure.</li>
+        </ul>
+
+        <h4>Advanced Commands:</h4>
+        <ul>
+            <li><code>terraform fmt</code> - Format Terraform configuration files.</li>
+            <li><code>terraform validate</code> - Validate the configuration files.</li>
+            <li><code>terraform output</code> - Show output values from the last applied state.</li>
+        </ul>
+
+        <a href="https://www.terraform.io/docs" class="btn btn-primary">Terraform Documentation</a>
+    </div>
+</div>
+{% endblock %}

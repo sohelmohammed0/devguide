@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Git & Version Control</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Git Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Basic Commands:</h4>
+        <ul>
+            <li><code>git init</code> - Initialize a new Git repository.</li>
+            <li><code>git clone &lt;url&gt;</code> - Clone a remote repository.</li>
+            <li><code>git status</code> - Show the working tree status.</li>
+            <li><code>git add &lt;file&gt;</code> - Stage changes for commit.</li>
+            <li><code>git commit -m "message"</code> - Commit changes with a message.</li>
+        </ul>
+
+        <h4>Advanced Commands:</h4>
+        <ul>
+            <li><code>git branch</code> - List all branches.</li>
+            <li><code>git checkout -b &lt;branch&gt;</code> - Create a new branch and switch to it.</li>
+            <li><code>git merge &lt;branch&gt;</code> - Merge a branch into the current branch.</li>
+            <li><code>git stash</code> - Temporarily store changes you don’t want to commit yet.</li>
+            <li><code>git rebase</code> - Reapply commits on top of another base tip.</li>
+        </ul>
+
+        <a href="https://git-scm.com/docs" class="btn btn-primary">Git Documentation</a>
+    </div>
+</div>
+{% endblock %}

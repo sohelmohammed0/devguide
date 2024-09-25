@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Docker & Containerization</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Docker Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Basic Commands:</h4>
+        <ul>
+            <li><code>docker run &lt;image&gt;</code> - Run a container from an image.</li>
+            <li><code>docker ps</code> - List running containers.</li>
+            <li><code>docker images</code> - List available Docker images.</li>
+            <li><code>docker build -t &lt;tag&gt; .</code> - Build a Docker image from a Dockerfile.</li>
+            <li><code>docker exec -it &lt;container&gt; /bin/bash</code> - Access a running container.</li>
+        </ul>
+
+        <h4>Advanced Commands:</h4>
+        <ul>
+            <li><code>docker-compose up</code> - Start services defined in a Docker Compose file.</li>
+            <li><code>docker swarm init</code> - Initialize Docker Swarm for orchestration.</li>
+            <li><code>docker network ls</code> - List Docker networks.</li>
+            <li><code>docker volume ls</code> - List Docker volumes.</li>
+        </ul>
+
+        <a href="https://docs.docker.com/" class="btn btn-primary">Docker Documentation</a>
+    </div>
+</div>
+{% endblock %}

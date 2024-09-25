@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>CI/CD Pipelines</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>CI/CD Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Common Tools:</h4>
+        <ul>
+            <li>Jenkins</li>
+            <li>GitLab CI</li>
+            <li>CircleCI</li>
+            <li>Travis CI</li>
+        </ul>
+
+        <h4>Jenkins Example Commands:</h4>
+        <ul>
+            <li><code>jenkins-cli.jar -s &lt;url&gt; get-job &lt;job_name&gt;</code> - Retrieve job configuration.</li>
+            <li><code>jenkins-cli.jar -s &lt;url&gt; build &lt;job_name&gt;</code> - Trigger a build.</li>
+        </ul>
+
+        <a href="https://www.jenkins.io/doc/" class="btn btn-primary">Jenkins Documentation</a>
+    </div>
+</div>
+{% endblock %}

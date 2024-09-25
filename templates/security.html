@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Security Testing with Trivy</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Trivy Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Basic Commands:</h4>
+        <ul>
+            <li><code>trivy image &lt;image_name&gt;</code> - Scan a Docker image for vulnerabilities.</li>
+            <li><code>trivy fs &lt;directory&gt;</code> - Scan the filesystem for vulnerabilities.</li>
+        </ul>
+
+        <h4>Advanced Commands:</h4>
+        <ul>
+            <li><code>trivy --severity HIGH,CRITICAL image &lt;image_name&gt;</code> - Scan with severity filters.</li>
+            <li><code>trivy --ignore-unfixed image &lt;image_name&gt;</code> - Ignore unfixed vulnerabilities.</li>
+        </ul>
+
+        <a href="https://aquasecurity.github.io/trivy/v0.20.0/docs/quickstart/" class="btn btn-primary">Trivy Documentation</a>
+    </div>
+</div>
+{% endblock %}

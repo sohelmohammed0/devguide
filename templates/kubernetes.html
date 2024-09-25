@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Kubernetes & Orchestration</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Kubernetes Commands</h3>
+    </div>
+    <div class="card-body">
+        <h4>Basic Commands:</h4>
+        <ul>
+            <li><code>kubectl get pods</code> - List running pods in the cluster.</li>
+            <li><code>kubectl describe pod &lt;pod_name&gt;</code> - Show details of a specific pod.</li>
+            <li><code>kubectl apply -f &lt;file&gt;.yaml</code> - Apply a Kubernetes configuration file.</li>
+            <li><code>kubectl delete pod &lt;pod_name&gt;</code> - Delete a pod.</li>
+        </ul>
+
+        <h4>Advanced Commands:</h4>
+        <ul>
+            <li><code>kubectl rollout restart deployment &lt;deployment_name&gt;</code> - Restart a deployment.</li>
+            <li><code>kubectl get nodes</code> - List nodes in the cluster.</li>
+            <li><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash</code> - Run commands inside a pod.</li>
+        </ul>
+
+        
+
+        <a href="https://kubernetes.io/docs/" class="btn btn-primary">Kubernetes Documentation</a>
+    </div>
+</div>
+{% endblock %}
+
+
+    
