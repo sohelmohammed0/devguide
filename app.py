@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from urllib.parse import quote as url_quote
 
 app = Flask(__name__)
 
@@ -43,4 +44,5 @@ def security():
     return render_template('security.html', title='Security Testing with Trivy')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
