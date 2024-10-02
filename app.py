@@ -43,6 +43,10 @@ def monitoring():
 def security():
     return render_template('security.html', title='Security Testing with Trivy')
 
+@app.route('/linux')
+def linux():
+    return render_template('linux.html', title='Linux Guide')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 

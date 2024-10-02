@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">DevOps Learning App</a>
-        <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="/git">Git</a></li>
                 <li class="nav-item"><a class="nav-link" href="/docker">Docker</a></li>
@@ -19,6 +17,7 @@
                 <li class="nav-item"><a class="nav-link" href="/cicd">CI/CD</a></li>
                 <li class="nav-item"><a class="nav-link" href="/monitoring">Monitoring</a></li>
                 <li class="nav-item"><a class="nav-link" href="/security">Security</a></li>
+                <li class="nav-item"><a class="nav-link" href="Linux">Linux</a></li> <!-- This is the new Linux link -->
             </ul>
         </div>
     </nav>
@@ -29,134 +28,4 @@
 
 </body>
 </html>
-
-<!--MONITORING WITH ELK-->
-
-<h2>Complete SRE Monitoring Setup with ELK Stack (Elasticsearch, Logstash, Kibana), Heartbeat & Metricbeat</h2>
-<div class="card">
-    <div class="card-header bg-info text-white">
-        <h3>Mastering ELK Stack for Monitoring & Visualization</h3>
-    </div>
-    <div class="card-body">
-        <p><strong>Monitoring</strong> with the ELK stack is a powerful approach to track, analyze, and visualize logs and system performance metrics. Elasticsearch stores the data, Logstash processes it, and Kibana visualizes it. For system and uptime monitoring, you can integrate <strong>Heartbeat</strong> (for uptime monitoring) and <strong>Metricbeat</strong> (for system metrics collection).</p>
-
-        <h4>Core Concepts:</h4>
-        <ul>
-            <li><strong>Elasticsearch:</strong> A distributed search and analytics engine used for storing and searching large datasets, especially logs.</li>
-            <li><strong>Logstash:</strong> A data processing pipeline that ingests, transforms, and sends logs and metrics to Elasticsearch.</li>
-            <li><strong>Kibana:</strong> A dashboard tool used to visualize data stored in Elasticsearch.</li>
-            <li><strong>Heartbeat:</strong> A lightweight daemon used to monitor the availability of services by pinging them at regular intervals.</li>
-            <li><strong>Metricbeat:</strong> A lightweight shipper for collecting and sending system metrics (CPU, memory, network) to Elasticsearch.</li>
-        </ul>
-
-        <h4>Step-by-Step ELK Setup</h4>
-        <ol>
-            <li><strong>Install Elasticsearch:</strong>
-                <pre><code>
-# On Ubuntu
-sudo apt-get update
-sudo apt-get install elasticsearch
-sudo systemctl enable elasticsearch.service
-sudo systemctl start elasticsearch.service
-                </code></pre>
-                After installation, verify Elasticsearch by navigating to <code>http://localhost:9200</code>.
-            </li>
-
-            <li><strong>Install Logstash:</strong>
-                <pre><code>
-# On Ubuntu
-sudo apt-get update
-sudo apt-get install logstash
-sudo systemctl enable logstash.service
-sudo systemctl start logstash.service
-                </code></pre>
-                Configure Logstash by creating a pipeline to process and send logs to Elasticsearch.
-            </li>
-
-            <li><strong>Install Kibana:</strong>
-                <pre><code>
-# On Ubuntu
-sudo apt-get update
-sudo apt-get install kibana
-sudo systemctl enable kibana.service
-sudo systemctl start kibana.service
-                </code></pre>
-                Access Kibana at <code>http://localhost:5601</code> to create and manage dashboards.
-            </li>
-
-            <li><strong>Install Metricbeat for System Monitoring:</strong>
-                <pre><code>
-# On Ubuntu
-sudo apt-get update
-sudo apt-get install metricbeat
-                </code></pre>
-                Enable and configure Metricbeat to collect system metrics and send them to Elasticsearch.
-                <pre><code>
-# Enable Metricbeat modules for system monitoring
-sudo metricbeat modules enable system
-sudo metricbeat setup
-sudo systemctl start metricbeat
-                </code></pre>
-            </li>
-
-            <li><strong>Install Heartbeat for Uptime Monitoring:</strong>
-                <pre><code>
-# On Ubuntu
-sudo apt-get update
-sudo apt-get install heartbeat-elastic
-                </code></pre>
-                Configure Heartbeat to monitor your services' uptime:
-                <pre><code>
-# /etc/heartbeat/heartbeat.yml
-heartbeat.monitors:
-  - type: http
-    schedule: '@every 10s'
-    urls: ["http://localhost:9200"]
-    check.request:
-      method: GET
-    check.response:
-      status: 200
-                </code></pre>
-                Start Heartbeat:
-                <pre><code>
-sudo systemctl start heartbeat-elastic
-                </code></pre>
-            </li>
-        </ol>
-
-        <h4>Visualizing Data with Kibana</h4>
-        <ul>
-            <li><strong>Create Dashboards:</strong> In Kibana, you can create dashboards by visualizing the data from Metricbeat, Heartbeat, and Logstash. Use the "Discover" tab to explore log data.</li>
-            <li><strong>Create Alerts:</strong> Set up Kibana alerts to notify you when certain metrics exceed thresholds (e.g., CPU usage over 80%).</li>
-            <li><strong>Monitor Uptime:</strong> Use the "Uptime" app in Kibana to monitor service availability, powered by Heartbeat.</li>
-            <li><strong>Monitor System Metrics:</strong> Visualize CPU, memory, and network usage via Metricbeat dashboards in Kibana.</li>
-        </ul>
-
-        <h4>Best Practices for ELK Monitoring:</h4>
-        <ul>
-            <li><strong>Set Up Alerts:</strong> Use Elasticsearch Watcher to trigger alerts when logs match specific patterns (e.g., errors or anomalies).</li>
-            <li><strong>Use Dashboards:</strong> Create dedicated dashboards for different components of your infrastructure (e.g., web server, database, etc.).</li>
-            <li><strong>Monitor Elastic Stack Resources:</strong> Keep an eye on Elasticsearch and Logstash performance to avoid overloading the stack itself.</li>
-            <li><strong>Use Filters and Aggregations:</strong> In Kibana, filter and aggregate data to focus on critical events or metrics.</li>
-        </ul>
-
-        <h4>Practical Hands-on Exercises:</h4>
-        <ul>
-            <li><strong>Basic:</strong> Set up Metricbeat and Heartbeat to monitor system metrics and uptime, and visualize them in Kibana.</li>
-            <li><strong>Intermediate:</strong> Create custom dashboards in Kibana for different server environments (production, staging).</li>
-            <li><strong>Advanced:</strong> Set up Logstash to parse and filter log files, and use Kibana to search for errors and troubleshoot issues in real-time.</li>
-        </ul>
-
-        <h4>Resources for Deep Dive Learning:</h4>
-        <ul>
-            <li><a href="https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html" class="btn btn-primary">Elastic Stack Documentation</a></li>
-            <li><a href="https://www.elastic.co/guide/en/beats/heartbeat/current/index.html" class="btn btn-primary">Heartbeat Documentation</a></li>
-            <li><a href="https://www.elastic.co/guide/en/beats/metricbeat/current/index.html" class="btn btn-primary">Metricbeat Documentation</a></li>
-        </ul>
-    </div>
-</div>
-
-<footer class="bg-dark text-white text-center py-3 mt-4">
-    <p>&copy; 2024 DevOps Learning App</p>
-</footer>
 
