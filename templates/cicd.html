@@ -1,51 +1,107 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>CI/CD Pipelines</h2>
+<h2 class="page-title text-center">CI/CD Pipelines for Beginners</h2>
 
-<div class="card mb-4">
-    <div class="card-header">
-        <h3>CI/CD Concepts</h3>
+<!-- Introduction -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-primary text-white">
+        <h3>Introduction to CI/CD</h3>
     </div>
     <div class="card-body">
-        <p><strong>Continuous Integration (CI)</strong> is the practice of frequently merging code changes into a shared repository, where automated builds and tests are run. <strong>Continuous Deployment (CD)</strong> automates the release of validated code to production environments.</p>
+        <p class="lead">Continuous Integration (CI) and Continuous Deployment/Delivery (CD) are essential practices in modern software development, aimed at improving efficiency, reliability, and collaboration.</p>
+        <p>CI focuses on frequently integrating code into a shared repository, running tests, and building the code. CD takes this a step further by automating the release of code to production environments. Learn the basics here!</p>
+    </div>
+</div>
 
-        <h4>Key Benefits of CI/CD:</h4>
-        <ul>
-            <li>Faster feedback on code changes, improving development efficiency.</li>
-            <li>Automated testing reduces the risk of bugs reaching production.</li>
-            <li>Frequent releases keep features and updates flowing to users quickly.</li>
-        </ul>
-
-        <h4>Best Practices:</h4>
-        <ul>
-            <li>Integrate frequently to avoid large, complex merges.</li>
-            <li>Ensure each commit is tested with automated testing pipelines.</li>
-            <li>Automate deployment to keep environments consistent.</li>
-            <li>Monitor the deployment process to catch any production issues early.</li>
+<!-- Features of CI/CD -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-success text-white">
+        <h3>Features of CI/CD</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> Frequent Integration of Code Changes</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> Automated Testing for Higher Code Quality</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> Continuous Delivery/Deployment of Updates</li>
+            <li class="list-group-item"><i class="bi bi-check-circle-fill"></i> Faster Feedback for Developers</li>
         </ul>
     </div>
 </div>
 
-<div class="card mb-4">
-    <div class="card-header">
-        <h3>CI/CD Tools</h3>
+<!-- Basic Structure and Workflow -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-info text-white">
+        <h3>Basic CI/CD Structure & Workflow</h3>
     </div>
     <div class="card-body">
-        <h4>Popular CI/CD Tools:</h4>
-        <ul>
-            <li><strong>Jenkins:</strong> Open-source automation server for building, testing, and deploying applications.</li>
-            <li><strong>GitLab CI:</strong> Built-in CI/CD features of GitLab to automate the software lifecycle.</li>
-            <li><strong>CircleCI:</strong> Cloud-based CI/CD tool to automate delivery pipelines.</li>
-            <li><strong>Travis CI:</strong> Service for building and testing projects hosted on GitHub.</li>
+        <p>CI/CD pipelines consist of several key stages:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Source Control:</strong> Code is pushed to version control (e.g., Git).</li>
+            <li class="list-group-item"><strong>Build:</strong> Code is compiled, and artifacts are generated.</li>
+            <li class="list-group-item"><strong>Test:</strong> Automated tests verify the code's integrity.</li>
+            <li class="list-group-item"><strong>Deploy:</strong> The validated code is deployed to a production environment.</li>
         </ul>
+    </div>
+</div>
 
-        <h4>Jenkins Example Commands:</h4>
-        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; build &lt;job_name&gt;</code></pre>
-        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; create-job &lt;job_name&gt; &lt; config.xml</code></pre>
-        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; delete-job &lt;job_name&gt;</code></pre>
+<!-- Key Benefits -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-warning text-white">
+        <h3>Key Benefits of CI/CD</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill"></i> Improved developer productivity</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill"></i> Quicker releases to production</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill"></i> Early detection of issues</li>
+            <li class="list-group-item"><i class="bi bi-arrow-right-circle-fill"></i> Higher code quality through automation</li>
+        </ul>
+    </div>
+</div>
 
-        <h4>Sample Jenkinsfile for Practice:</h4>
-        <pre><code>pipeline {
+<!-- Best Practices -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-dark text-white">
+        <h3>Best Practices for CI/CD</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="bi bi-gear-wide-connected"></i> Commit code frequently to avoid complex merges.</li>
+            <li class="list-group-item"><i class="bi bi-gear-wide-connected"></i> Test each commit with automated pipelines.</li>
+            <li class="list-group-item"><i class="bi bi-gear-wide-connected"></i> Automate deployments for consistency.</li>
+            <li class="list-group-item"><i class="bi bi-gear-wide-connected"></i> Monitor deployments for quick rollback if needed.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Popular CI/CD Tools -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-secondary text-white">
+        <h3>Popular CI/CD Tools & Useful Links</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Jenkins:</strong> <a href="https://www.jenkins.io/" class="text-primary">Jenkins Documentation</a></li>
+            <li class="list-group-item"><strong>GitLab CI:</strong> <a href="https://docs.gitlab.com/ee/ci/" class="text-primary">GitLab CI Documentation</a></li>
+            <li class="list-group-item"><strong>CircleCI:</strong> <a href="https://circleci.com/docs/" class="text-primary">CircleCI Documentation</a></li>
+            <li class="list-group-item"><strong>Travis CI:</strong> <a href="https://docs.travis-ci.com/" class="text-primary">Travis CI Documentation</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Jenkins Commands & Example -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-primary text-white">
+        <h3>Jenkins Commands & Example Pipeline</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="mb-3 text-secondary">Basic Jenkins CLI Commands:</h4>
+        <pre class="bg-dark text-white p-3 rounded"><code>java -jar jenkins-cli.jar -s <url> build <job_name></code></pre>
+        <pre class="bg-dark text-white p-3 rounded"><code>java -jar jenkins-cli.jar -s <url> create-job <job_name> < config.xml</code></pre>
+        <pre class="bg-dark text-white p-3 rounded"><code>java -jar jenkins-cli.jar -s <url> delete-job <job_name></code></pre>
+
+        <h4 class="mt-4 mb-3 text-secondary">Sample Jenkins Pipeline (Jenkinsfile):</h4>
+        <pre class="bg-light text-dark p-3 rounded"><code>pipeline {
     agent any
     stages {
         stage('Build') {
@@ -68,38 +124,35 @@
     </div>
 </div>
 
-<div class="card mb-4">
-    <div class="card-header">
-        <h3>Practice Sets</h3>
+<!-- Exercises & Practice Sets -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-success text-white">
+        <h3>Exercises & Practice Sets</h3>
     </div>
     <div class="card-body">
-        <h4>Exercise 1: Set up a Simple Jenkins Job</h4>
-        <p>Set up a basic Jenkins pipeline with three stages: Build, Test, and Deploy. Use the provided Jenkinsfile as a guide and try running the pipeline locally.</p>
+        <h4 class="text-primary">Exercise 1: Set up a Simple Jenkins Job</h4>
+        <p>Use the provided Jenkinsfile to set up a basic Jenkins pipeline locally.</p>
 
-        <h4>Exercise 2: Automate Testing with Jenkins</h4>
-        <p>Integrate a simple test into your Jenkins pipeline. Use a basic unit test framework (e.g., pytest for Python, JUnit for Java) and automate the testing step in your pipeline.</p>
+        <h4 class="mt-4 text-primary">Exercise 2: Automate Testing with Jenkins</h4>
+        <p>Add automated testing to your Jenkins pipeline using a basic test framework (e.g., pytest, JUnit).</p>
 
-        <h4>Exercise 3: Git Integration with Jenkins</h4>
-        <p>Set up a Jenkins pipeline that automatically triggers a build whenever you push code to your GitHub repository.</p>
+        <h4 class="mt-4 text-primary">Exercise 3: Git Integration with Jenkins</h4>
+        <p>Configure Jenkins to trigger builds automatically when code is pushed to GitHub.</p>
     </div>
 </div>
 
-<div class="card mb-4">
-    <div class="card-header">
-        <h3>Resources & Tutorials</h3>
+<!-- Resources & Tutorials -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-warning text-white">
+        <h3>Rich Resources & Tutorials</h3>
     </div>
     <div class="card-body">
-        <h4>Essential Resources:</h4>
-        <ul>
-            <li><a href="https://www.jenkins.io/doc/">Jenkins Documentation</a> - Official Jenkins documentation for setup, configuration, and pipelines.</li>
-            <li><a href="https://www.jenkins.io/doc/book/pipeline/">Jenkins Pipeline Documentation</a> - Learn how to write pipelines effectively in Jenkins.</li>
-            <li><a href="https://www.udemy.com/course/jenkins-the-complete-guide/">Udemy: Jenkins - The Complete Guide</a> - Comprehensive course on Jenkins, including pipelines and best practices.</li>
-            <li><a href="https://docs.gitlab.com/ee/ci/">GitLab CI Documentation</a> - Official documentation on setting up GitLab CI pipelines.</li>
-            <li><a href="https://circleci.com/docs/">CircleCI Documentation</a> - Learn how to build CI/CD pipelines with CircleCI.</li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://www.jenkins.io/doc/" class="text-primary">Jenkins Documentation</a></li>
+            <li class="list-group-item"><a href="https://www.udemy.com/course/jenkins-the-complete-guide/" class="text-primary">Udemy: Jenkins - The Complete Guide</a></li>
+            <li class="list-group-item"><a href="https://circleci.com/docs/" class="text-primary">CircleCI Documentation</a></li>
         </ul>
-
-        <h4>Sample Code Snippets for Practice:</h4>
-        <pre><code>pipeline {
+        <pre class="bg-light text-dark p-3 rounded mt-3"><code>pipeline {
     agent any
     stages {
         stage('Checkout') {
@@ -119,9 +172,105 @@
         }
     }
 }</code></pre>
-
-        <p>Explore and modify this pipeline by adding more stages, such as notifications, clean-up tasks, or deploying to a cloud environment.</p>
     </div>
 </div>
+
+<!-- Conclusion -->
+<div class="card mb-4 shadow-sm rounded border-light">
+    <div class="card-header bg-secondary text-white">
+        <h3>Conclusion</h3>
+    </div>
+    <div class="card-body">
+        <p>Mastering CI/CD will significantly enhance your development process, enabling you to automate repetitive tasks, detect issues early, and deliver high-quality products faster. Use the provided resources and exercises to start your journey in CI/CD!</p>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #009505;
+        color: #fff;
+        display: flex;
+        min-height: 100vh;
+    }
+
+    nav {
+        width: 250px;
+        background-color: #169a93;
+        padding: 30px 20px;
+        position: fixed;
+        height: 100%;
+        box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
+    }
+
+    nav h1 {
+        color: #29ff30;
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    nav ul li {
+        margin-bottom: 25px;
+    }
+
+    nav ul li a {
+        color: #1e7c8b;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #09ff00;
+    }
+
+    main {
+        margin-left: 270px;
+        padding: 50px;
+        flex: 1;
+    }
+
+    header h1 {
+        font-size: 3.5rem;
+        color: #2c3e50;
+        background: linear-gradient(90deg, #2980b9, #6dd5fa);
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #292b44;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #ffab00;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    ul li i {
+        margin-right: 10px;
+        color: #29ff30;
+    }
+</style>
 
 {% endblock %}

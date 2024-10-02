@@ -1,60 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Docker & Containerization</h2>
+<h2 class="text-center">Docker & Containerization</h2>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-info text-white">
         <h3>Introduction to Docker</h3>
     </div>
     <div class="card-body">
         <p><strong>Docker</strong> is an open-source platform for automating the deployment, scaling, and management of applications in lightweight, portable containers. Docker containers encapsulate applications and their dependencies, making it easier to ensure consistency across development, testing, and production environments.</p>
 
-        <h4>Key Benefits of Docker:</h4>
-        <ul>
-            <li>Improves portability by enabling applications to run in any environment.</li>
-            <li>Reduces conflicts between development, staging, and production environments.</li>
-            <li>Increases development speed through fast container startup and teardown.</li>
-            <li>Supports microservices architecture by allowing applications to be split into smaller, independently deployable services.</li>
+        <h4 class="font-weight-bold">Key Benefits of Docker:</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Improves portability by enabling applications to run in any environment.</li>
+            <li class="list-group-item">Reduces conflicts between development, staging, and production environments.</li>
+            <li class="list-group-item">Increases development speed through fast container startup and teardown.</li>
+            <li class="list-group-item">Supports microservices architecture by allowing applications to be split into smaller, independently deployable services.</li>
         </ul>
 
-        <h4>Best Practices for Docker Usage:</h4>
-        <ul>
-            <li>Keep images lightweight by minimizing layers and using small base images.</li>
-            <li>Use multi-stage builds to optimize image sizes.</li>
-            <li>Leverage Docker Compose for local development environments.</li>
-            <li>Ensure proper handling of sensitive data using environment variables or secrets.</li>
-            <li>Regularly clean up unused containers, images, and volumes to free up space.</li>
+        <h4 class="font-weight-bold">Best Practices for Docker Usage:</h4>
+        <ul class="list-group">
+            <li class="list-group-item">Keep images lightweight by minimizing layers and using small base images.</li>
+            <li class="list-group-item">Use multi-stage builds to optimize image sizes.</li>
+            <li class="list-group-item">Leverage Docker Compose for local development environments.</li>
+            <li class="list-group-item">Ensure proper handling of sensitive data using environment variables or secrets.</li>
+            <li class="list-group-item">Regularly clean up unused containers, images, and volumes to free up space.</li>
         </ul>
     </div>
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-success text-white">
         <h3>Basic Docker Commands</h3>
     </div>
     <div class="card-body">
-        <h4>Frequently Used Commands:</h4>
-        <ul>
-            <li><code>docker run &lt;image&gt;</code> - Run a container from the specified image.</li>
-            <li><code>docker ps</code> - List running containers.</li>
-            <li><code>docker images</code> - List available Docker images.</li>
-            <li><code>docker build -t &lt;tag&gt; .</code> - Build an image from a Dockerfile.</li>
-            <li><code>docker exec -it &lt;container&gt; /bin/bash</code> - Access a running container's shell.</li>
+        <h4 class="font-weight-bold">Frequently Used Commands:</h4>
+        <ul class="list-group">
+            <li class="list-group-item"><code>docker run &lt;image&gt;</code> - Run a container from the specified image.</li>
+            <li class="list-group-item"><code>docker ps</code> - List running containers.</li>
+            <li class="list-group-item"><code>docker images</code> - List available Docker images.</li>
+            <li class="list-group-item"><code>docker build -t &lt;tag&gt; .</code> - Build an image from a Dockerfile.</li>
+            <li class="list-group-item"><code>docker exec -it &lt;container&gt; /bin/bash</code> - Access a running container's shell.</li>
         </ul>
 
-        <h4>Advanced Commands:</h4>
-        <ul>
-            <li><code>docker-compose up</code> - Start all services defined in a Docker Compose file.</li>
-            <li><code>docker swarm init</code> - Initialize Docker Swarm for clustering and orchestration.</li>
-            <li><code>docker network ls</code> - List all Docker networks.</li>
-            <li><code>docker volume ls</code> - List all Docker volumes for persistent storage.</li>
-            <li><code>docker logs &lt;container&gt;</code> - View the logs for a container (useful for debugging).</li>
+        <h4 class="font-weight-bold">Advanced Commands:</h4>
+        <ul class="list-group">
+            <li class="list-group-item"><code>docker-compose up</code> - Start all services defined in a Docker Compose file.</li>
+            <li class="list-group-item"><code>docker swarm init</code> - Initialize Docker Swarm for clustering and orchestration.</li>
+            <li class="list-group-item"><code>docker network ls</code> - List all Docker networks.</li>
+            <li class="list-group-item"><code>docker volume ls</code> - List all Docker volumes for persistent storage.</li>
+            <li class="list-group-item"><code>docker logs &lt;container&gt;</code> - View the logs for a container (useful for debugging).</li>
         </ul>
     </div>
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-warning text-white">
         <h3>Sample Dockerfile for Practice</h3>
     </div>
     <div class="card-body">
@@ -74,41 +74,41 @@ COPY . .
 # Expose port and define startup command
 EXPOSE 8080
 CMD [ "node", "server.js" ]
-</code></pre>
+        </code></pre>
         <p>Practice building an image from this Dockerfile by running <code>docker build -t my-node-app .</code> and then running the container with <code>docker run -p 8080:8080 my-node-app</code>.</p>
     </div>
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-primary text-white">
         <h3>Practice Sets</h3>
     </div>
     <div class="card-body">
-        <h4>Exercise 1: Create and Run a Basic Docker Container</h4>
+        <h4 class="font-weight-bold">Exercise 1: Create and Run a Basic Docker Container</h4>
         <p>Build and run a Docker container for a simple web server (use Node.js or Python Flask). Write a basic Dockerfile, build the image, and expose the application to your local machine.</p>
 
-        <h4>Exercise 2: Use Docker Compose to Spin Up Multiple Containers</h4>
+        <h4 class="font-weight-bold">Exercise 2: Use Docker Compose to Spin Up Multiple Containers</h4>
         <p>Create a <code>docker-compose.yml</code> file that starts a web service and a database service. Ensure the two containers can communicate with each other.</p>
 
-        <h4>Exercise 3: Build a Docker Swarm Cluster</h4>
+        <h4 class="font-weight-bold">Exercise 3: Build a Docker Swarm Cluster</h4>
         <p>Set up a Docker Swarm cluster with at least one manager and two worker nodes. Deploy a service and observe how the swarm manages the containers.</p>
     </div>
 </div>
 
 <div class="card mb-4">
-    <div class="card-header">
+    <div class="card-header bg-danger text-white">
         <h3>Valuable Resources & Tutorials</h3>
     </div>
     <div class="card-body">
-        <h4>Essential Resources:</h4>
-        <ul>
-            <li><a href="https://docs.docker.com/" class="btn btn-primary">Official Docker Documentation</a> - Comprehensive guide to Docker concepts, commands, and usage.</li>
-            <li><a href="https://docs.docker.com/get-started/" class="btn btn-primary">Get Started with Docker</a> - Beginner-friendly tutorial to get started with Docker.</li>
-            <li><a href="https://www.udemy.com/course/docker-tutorial-for-devops-engineers/" class="btn btn-primary">Udemy: Docker Tutorial for DevOps Engineers</a> - A thorough course on Docker with a focus on DevOps workflows.</li>
-            <li><a href="https://docs.docker.com/compose/" class="btn btn-primary">Docker Compose Documentation</a> - Learn how to orchestrate multi-container applications using Docker Compose.</li>
+        <h4 class="font-weight-bold">Essential Resources:</h4>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="https://docs.docker.com/" class="btn btn-primary">Official Docker Documentation</a> - Comprehensive guide to Docker concepts, commands, and usage.</li>
+            <li class="list-group-item"><a href="https://docs.docker.com/get-started/" class="btn btn-primary">Get Started with Docker</a> - Beginner-friendly tutorial to get started with Docker.</li>
+            <li class="list-group-item"><a href="https://www.udemy.com/course/docker-tutorial-for-devops-engineers/" class="btn btn-primary">Udemy: Docker Tutorial for DevOps Engineers</a> - A thorough course on Docker with a focus on DevOps workflows.</li>
+            <li class="list-group-item"><a href="https://docs.docker.com/compose/" class="btn btn-primary">Docker Compose Documentation</a> - Learn how to orchestrate multi-container applications using Docker Compose.</li>
         </ul>
         
-        <h4>Useful Code Snippets:</h4>
+        <h4 class="font-weight-bold">Useful Code Snippets:</h4>
         <pre><code># Example Docker Compose YAML for Node.js and MongoDB
 version: '3'
 services:
@@ -123,9 +123,99 @@ services:
     image: mongo
     ports:
       - "27017:27017"
-</code></pre>
+        </code></pre>
         <p>Use this Compose file to spin up a Node.js web service and a MongoDB database, then try connecting the web app to the database.</p>
     </div>
 </div>
+
+</main>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #3522a1;
+        color: #fff;
+        display: flex;
+        min-height: 100vh;
+    }
+
+    nav {
+        width: 250px;
+        background-color: #13132b;
+        padding: 30px 20px;
+        position: fixed;
+        height: 100%;
+        box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
+    }
+
+    nav h1 {
+        color: #29ff30;
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    nav ul li {
+        margin-bottom: 25px;
+    }
+
+    nav ul li a {
+        color: #1e7c8b;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #09ff00;
+    }
+
+    main {
+        margin-left: 270px;
+        padding: 50px;
+        flex: 1;
+    }
+
+    header h1 {
+        font-size: 3.5rem;
+        color: #2c3e50;
+        background: linear-gradient(90deg, #2980b9, #6dd5fa);
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #292b44;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: #ffab00;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    ul li i {
+        margin-right: 10px;
+        color: #29ff30;
+    }
+</style>
 
 {% endblock %}
