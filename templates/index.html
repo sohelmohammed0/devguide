@@ -1,26 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Guide</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>DevOps Engineer Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e2f;
+            color: #fff;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 250px;
+            background-color: #13132b;
+            padding: 30px 20px;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
+        }
+
+        nav h1 {
+            color: #29ff30;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-bottom: 25px;
+        }
+
+        nav ul li a {
+            color: #1e7c8b;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        nav ul li a i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        nav ul li a:hover {
+            color: #09ff00;
+        }
+
+        /* Main content */
+        main {
+            margin-left: 270px;
+            padding: 50px;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+    font-size: 3.5rem; /* Balanced size for emphasis */
+    color: #2c3e50; /* Dark blue-gray for a clean, professional look */
+    font-family: 'Roboto', sans-serif; /* Modern, easy-to-read font */
+    font-weight: 700; /* Bold but not too heavy */
+    text-transform: capitalize; /* Capitalizes the first letter for a refined touch */
+    letter-spacing: 1px; /* Slight letter spacing for clarity */
+    background: linear-gradient(90deg, #2980b9, #6dd5fa); /* Cool gradient for a smooth, calm vibe */
+    padding: 15px 30px; /* Extra space for breathing room */
+    border-radius: 12px; /* Smooth rounded edges */
+    text-align: center; /* Center the text */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease; /* Adds a hover effect */
+}
+
+header h1:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover for interactivity */
+}
+
+
+        /* Card Container */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        /* Individual Card */
+        .card {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: #ffcc29;
+            margin-bottom: 20px;
+            transition: color 0.4s;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .card a {
+            background-color: #00ffea;
+            color: #1e1e2f;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .card a:hover {
+            background-color: #ffcc29;
+        }
+
+        /* Floating Action Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #ff416c;
+            border: none;
+            padding: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 65, 108, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .floating-btn i {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 35px rgba(255, 65, 108, 0.7);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                width: 100px;
+            }
+
+            nav h1 {
+                font-size: 1.4rem;
+            }
+
+            main {
+                margin-left: 120px;
+            }
+
+            .card i {
+                font-size: 2.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>DevOps Engineer Guide</h1>
-    </header>
-    <section>
-        <h2>Core DevOps Tools</h2>
+
+    <!-- Sidebar Navigation -->
+    <nav>
+        <h1>DevOps Guide</h1>
         <ul>
-            <li><a href="/git">Git & Version Control</a></li>
-            <li><a href="/docker">Docker & Containerization</a></li>
-            <li><a href="/kubernetes">Kubernetes & Orchestration</a></li>
-            <li><a href="/terraform">Terraform & Infrastructure as Code</a></li>
-            <li><a href="/cicd">CI/CD Pipelines</a></li>
-            <li><a href="/monitoring">Monitoring with Prometheus & Grafana</a></li>
-            <li><a href="/security">Security Testing with Trivy</a></li>
+            <li><a href="#git"><i class="fab fa-git-alt"></i>Git</a></li>
+            <li><a href="#docker"><i class="fab fa-docker"></i>Docker</a></li>
+            <li><a href="#kubernetes"><i class="fab fa-kubernetes"></i>Kubernetes</a></li>
+            <li><a href="#terraform"><i class="fas fa-cloud"></i>Terraform</a></li>
+            <li><a href="#cicd"><i class="fas fa-tools"></i>CI/CD</a></li>
+            <li><a href="#monitoring"><i class="fas fa-chart-line"></i>Monitoring</a></li>
+            <li><a href="#security"><i class="fas fa-shield-alt"></i>Security</a></li>
         </ul>
-    </section>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <header>
+            <h1>DevOps Engineer Guide</h1>
+        </header>
+
+        <!-- Card Section -->
+        <div class="card-container">
+            <div class="card" id="git">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git & Version Control</h3>
+                <p>Master version control with Git, learn branching, merging, and collaborate effectively.</p>
+                <a href="/git">Learn More</a>
+            </div>
+
+            <div class="card" id="docker">
+                <i class="fab fa-docker"></i>
+                <h3>Docker & Containerization</h3>
+                <p>Explore Docker containers and learn how to package applications for any environment.</p>
+                <a href="/docker">Learn More</a>
+            </div>
+
+            <div class="card" id="kubernetes">
+                <i class="fas fa-cube"></i>
+                <h3>Kubernetes</h3>
+                <p>Automate deployment, scaling, and management of containerized applications with Kubernetes.</p>
+                <a href="/kubernetes">Learn More</a>
+            </div>            
+            
+
+            <div class="card" id="terraform">
+                <i class="fas fa-cloud"></i>
+                <h3>Terraform & IaC</h3>
+                <p>Leverage Infrastructure as Code with Terraform for automated cloud resource management.</p>
+                <a href="/terraform">Learn More</a>
+            </div>
+
+            <div class="card" id="cicd">
+                <i class="fas fa-tools"></i>
+                <h3>CI/CD Pipelines</h3>
+                <p>Set up robust CI/CD pipelines to automate the build, test, and deploy process.</p>
+                <a href="/cicd">Learn More</a>
+            </div>
+
+            <div class="card" id="monitoring">
+                <i class="fas fa-chart-line"></i>
+                <h3>Monitoring & Logging</h3>
+                <p>Implement monitoring with Prometheus and logging with ELK Stack to ensure system reliability.</p>
+                <a href="/monitoring">Learn More</a>
+            </div>
+
+            <div class="card" id="security">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Security & Compliance</h3>
+                <p>Ensure system security through Trivy and other DevOps security best practices.</p>
+                <a href="/security">Learn More</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Action Button -->
+    <button class="floating-btn">
+        <i class="fas fa-plus"></i>
+    </button>
+
 </body>
+
 </html>

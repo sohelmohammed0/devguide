@@ -1,75 +1,112 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Git & Version Control</h2>
-<div class="card">
-    <div class="card-header bg-primary text-white">
-        <h3>Mastering Git Commands & Best Practices</h3>
+<div class="container mt-5">
+    <!-- Section: Header -->
+    <div class="text-center mb-4">
+        <h2 class="display-4 text-gradient">Git & Version Control</h2>
+        <p class="lead">Master the essentials of version control using Git</p>
     </div>
-    <div class="card-body">
-        <p><strong>Git</strong> is a distributed version control system used for tracking changes in source code during software development. It allows multiple people to collaborate, manage project versions, and provides a reliable mechanism to revert back to earlier stages when necessary.</p>
-        
-        <h4>Core Concepts:</h4>
-        <ul>
-            <li><strong>Repository (repo):</strong> A storage location for your project files and history of their changes.</li>
-            <li><strong>Commit:</strong> A snapshot of your project at a specific point in time.</li>
-            <li><strong>Branch:</strong> A separate line of development, allowing experimentation without affecting the main codebase.</li>
-            <li><strong>Merge:</strong> Combining changes from one branch into another.</li>
-            <li><strong>Rebase:</strong> Reapply changes from one branch onto another to create a linear history.</li>
-        </ul>
 
-        <h4>Basic Git Commands (Every Developer Must Know):</h4>
-        <ul>
-            <li><code>git init</code> - Initialize a new Git repository in the current directory.</li>
-            <li><code>git clone &lt;url&gt;</code> - Clone a remote repository from platforms like GitHub or GitLab.</li>
-            <li><code>git add &lt;file&gt;</code> - Stage a file (or use <code>git add .</code> to stage all changes).</li>
-            <li><code>git commit -m "message"</code> - Commit your changes with a descriptive message.</li>
-            <li><code>git pull</code> - Fetch and merge changes from a remote repository to your local repo.</li>
-            <li><code>git push</code> - Push your local changes to a remote repository.</li>
-        </ul>
+    <!-- Section: Card Content -->
+    <div class="card shadow-lg border-0 mb-4 rounded-3">
+        <div class="card-header bg-gradient-primary text-white text-center py-4">
+            <h3>Mastering Git Commands & Best Practices</h3>
+        </div>
+        <div class="card-body p-5">
+            <!-- Git Overview -->
+            <p class="fs-5"><strong>Git</strong> is a distributed version control system used for tracking changes in source code. It enables collaboration and version control, making it easy to revert to earlier stages of development.</p>
+            
+            <!-- Core Concepts -->
+            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-code-branch"></i> Core Concepts</h4>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Repository (repo):</strong> A storage location for project files and their change history.</li>
+                <li class="list-group-item"><strong>Commit:</strong> A snapshot of your project at a specific point in time.</li>
+                <li class="list-group-item"><strong>Branch:</strong> A separate line of development, allowing experimentation without affecting the main codebase.</li>
+                <li class="list-group-item"><strong>Merge:</strong> Combining changes from one branch into another.</li>
+                <li class="list-group-item"><strong>Rebase:</strong> Reapply changes from one branch onto another to create a linear history.</li>
+            </ul>
 
-        <h4>Branching & Collaboration:</h4>
-        <ul>
-            <li><code>git branch</code> - List all branches in the repository.</li>
-            <li><code>git checkout -b &lt;branch&gt;</code> - Create and switch to a new branch.</li>
-            <li><code>git merge &lt;branch&gt;</code> - Merge changes from another branch into your current branch.</li>
-            <li><code>git rebase &lt;branch&gt;</code> - Reapply commits from one branch on top of another to maintain a clean commit history.</li>
-            <li><code>git stash</code> - Temporarily save uncommitted changes, allowing you to work on a clean state without committing.</li>
-        </ul>
+            <!-- Basic Git Commands -->
+            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-terminal"></i> Basic Git Commands (Every Developer Must Know)</h4>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><code>git init</code> - Initialize a new Git repository.</li>
+                <li class="list-group-item"><code>git clone &lt;url&gt;</code> - Clone a remote repository.</li>
+                <li class="list-group-item"><code>git add &lt;file&gt;</code> - Stage a file (or <code>git add .</code> to stage all changes).</li>
+                <li class="list-group-item"><code>git commit -m "message"</code> - Commit changes with a descriptive message.</li>
+                <li class="list-group-item"><code>git pull</code> - Fetch and merge changes from a remote repository.</li>
+                <li class="list-group-item"><code>git push</code> - Push your local changes to a remote repository.</li>
+            </ul>
 
-        <h4>Advanced Git Commands & Best Practices:</h4>
-        <ul>
-            <li><code>git log</code> - View the commit history of your project.</li>
-            <li><code>git reset --hard &lt;commit&gt;</code> - Reset the current branch to a specific commit, discarding all changes after it.</li>
-            <li><code>git cherry-pick &lt;commit&gt;</code> - Apply a specific commit from one branch to another.</li>
-            <li><code>git reflog</code> - View the reference logs, which keep track of all updates made in the repository, even after a branch reset.</li>
-            <li><code>git tag</code> - Tag a specific commit to create a version reference (useful for marking releases).</li>
-        </ul>
+            <!-- Branching & Collaboration -->
+            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-sitemap"></i> Branching & Collaboration</h4>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><code>git branch</code> - List all branches.</li>
+                <li class="list-group-item"><code>git checkout -b &lt;branch&gt;</code> - Create and switch to a new branch.</li>
+                <li class="list-group-item"><code>git merge &lt;branch&gt;</code> - Merge changes from one branch to another.</li>
+                <li class="list-group-item"><code>git rebase &lt;branch&gt;</code> - Reapply commits to create a clean commit history.</li>
+                <li class="list-group-item"><code>git stash</code> - Temporarily save uncommitted changes.</li>
+            </ul>
 
-        <h4>Rich Resources for Learning & Practice:</h4>
-        <ul>
-            <li><a href="https://git-scm.com/docs" class="btn btn-primary">Official Git Documentation</a></li>
-            <li><a href="https://git-scm.com/book/en/v2" class="btn btn-primary">Pro Git Book (Free Online)</a></li>
-            <li><a href="https://learngitbranching.js.org/" class="btn btn-primary">Learn Git Branching (Interactive Tool)</a></li>
-            <li><a href="https://www.atlassian.com/git/tutorials" class="btn btn-primary">Atlassian Git Tutorials</a></li>
-            <li><a href="https://try.github.io/" class="btn btn-primary">Try Git (GitHub Learning Lab)</a></li>
-            <li><a href="https://www.udemy.com/course/git-and-github-crash-course/" class="btn btn-primary">Udemy: Git & GitHub Crash Course</a></li>
-        </ul>
+            <!-- Advanced Git Commands -->
+            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-tools"></i> Advanced Git Commands & Best Practices</h4>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><code>git log</code> - View commit history.</li>
+                <li class="list-group-item"><code>git reset --hard &lt;commit&gt;</code> - Reset to a specific commit, discarding changes after it.</li>
+                <li class="list-group-item"><code>git cherry-pick &lt;commit&gt;</code> - Apply a specific commit from one branch to another.</li>
+                <li class="list-group-item"><code>git reflog</code> - View the reference logs of repository updates.</li>
+                <li class="list-group-item"><code>git tag</code> - Tag a specific commit for versioning.</li>
+            </ul>
 
-        <h4>Practice Sets:</h4>
-        <ul>
-            <li><strong>Basic:</strong> Set up a repository, create a branch, and commit changes.</li>
-            <li><strong>Intermediate:</strong> Work with multiple branches, resolve merge conflicts, and rebase branches.</li>
-            <li><strong>Advanced:</strong> Perform cherry-picks, use tags for versioning, and recover from mistakes using <code>git reflog</code> and <code>git reset</code>.</li>
-        </ul>
+            <!-- Rich Resources Section -->
+            <h4 class="text-success mt-4 mb-3"><i class="fas fa-book"></i> Rich Resources for Learning & Practice</h4>
+            <ul class="list-unstyled d-flex flex-wrap justify-content-around">
+                <li><a href="https://git-scm.com/docs" class="btn btn-outline-primary mb-2">Official Git Docs</a></li>
+                <li><a href="https://git-scm.com/book/en/v2" class="btn btn-outline-primary mb-2">Pro Git Book (Free)</a></li>
+                <li><a href="https://learngitbranching.js.org/" class="btn btn-outline-primary mb-2">Learn Git Branching</a></li>
+                <li><a href="https://www.atlassian.com/git/tutorials" class="btn btn-outline-primary mb-2">Atlassian Git Tutorials</a></li>
+                <li><a href="https://try.github.io/" class="btn btn-outline-primary mb-2">Try Git</a></li>
+                <li><a href="https://www.udemy.com/course/git-and-github-crash-course/" class="btn btn-outline-primary mb-2">Git & GitHub Crash Course</a></li>
+            </ul>
 
-        <h4>Best Practices for Git:</h4>
-        <ul>
-            <li><strong>Commit Often:</strong> Keep your commits small and focused, making it easier to track changes.</li>
-            <li><strong>Write Clear Messages:</strong> Descriptive commit messages help others (and your future self) understand what changed and why.</li>
-            <li><strong>Use Branches:</strong> Isolate new features or bug fixes in their own branches to prevent affecting the main codebase.</li>
-            <li><strong>Pull Before Push:</strong> Always pull updates from the remote repo before pushing your changes to avoid conflicts.</li>
-            <li><strong>Merge Regularly:</strong> Regularly merge your branch with the main branch to stay updated and reduce merge conflicts.</li>
-        </ul>
+            <!-- Practice Sessions -->
+            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-laptop-code"></i> Practice Sessions</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded mb-4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-success"><i class="fas fa-check-circle"></i> Basic</h5>
+                            <p class="card-text">Set up a repository, create a branch, and commit changes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded mb-4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-warning"><i class="fas fa-exclamation-circle"></i> Intermediate</h5>
+                            <p class="card-text">Work with multiple branches, resolve merge conflicts, and rebase branches.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded mb-4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-danger"><i class="fas fa-bug"></i> Advanced</h5>
+                            <p class="card-text">Cherry-pick, tag for versioning, and recover using <code>git reflog</code>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Practices Section -->
+            <h4 class="text-success mt-4 mb-3"><i class="fas fa-lightbulb"></i> Best Practices for Git</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Commit Often:</strong> Keep commits small and focused.</li>
+                <li class="list-group-item"><strong>Clear Messages:</strong> Use descriptive commit messages.</li>
+                <li class="list-group-item"><strong>Use Branches:</strong> Isolate new features in separate branches.</li>
+                <li class="list-group-item"><strong>Pull Before Push:</strong> Pull changes from remote before pushing to avoid conflicts.</li>
+                <li class="list-group-item"><strong>Merge Regularly:</strong> Regularly merge branches to reduce conflicts.</li>
+            </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
