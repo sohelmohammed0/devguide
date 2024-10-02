@@ -2,31 +2,73 @@
 {% block content %}
 <h2>Kubernetes & Orchestration</h2>
 <div class="card">
-    <div class="card-header">
-        <h3>Kubernetes Commands</h3>
+    <div class="card-header bg-success text-white">
+        <h3>Mastering Kubernetes Commands & Best Practices</h3>
     </div>
     <div class="card-body">
-        <h4>Basic Commands:</h4>
+        <p><strong>Kubernetes</strong> (K8s) is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It provides essential tools to manage microservices architectures, offering features like service discovery, load balancing, self-healing, and automated rollouts and rollbacks.</p>
+
+        <h4>Core Concepts:</h4>
         <ul>
-            <li><code>kubectl get pods</code> - List running pods in the cluster.</li>
-            <li><code>kubectl describe pod &lt;pod_name&gt;</code> - Show details of a specific pod.</li>
-            <li><code>kubectl apply -f &lt;file&gt;.yaml</code> - Apply a Kubernetes configuration file.</li>
-            <li><code>kubectl delete pod &lt;pod_name&gt;</code> - Delete a pod.</li>
+            <li><strong>Pod:</strong> The smallest deployable unit in Kubernetes, representing one or more containers.</li>
+            <li><strong>Service:</strong> Defines a logical set of Pods and a policy by which to access them.</li>
+            <li><strong>Deployment:</strong> Manages the creation and scaling of Pods, ensuring they stay running.</li>
+            <li><strong>Namespace:</strong> A way to divide resources in a Kubernetes cluster, improving organization and security.</li>
+            <li><strong>Node:</strong> A worker machine in Kubernetes that runs containerized applications.</li>
         </ul>
 
-        <h4>Advanced Commands:</h4>
+        <h4>Essential Kubernetes Commands:</h4>
         <ul>
-            <li><code>kubectl rollout restart deployment &lt;deployment_name&gt;</code> - Restart a deployment.</li>
-            <li><code>kubectl get nodes</code> - List nodes in the cluster.</li>
-            <li><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash</code> - Run commands inside a pod.</li>
+            <li><code>kubectl get pods</code> - List all running pods in the current namespace, showing their status.</li>
+            <li><code>kubectl describe pod &lt;pod_name&gt;</code> - Show detailed information about a specific pod, including events and conditions.</li>
+            <li><code>kubectl apply -f &lt;file&gt;.yaml</code> - Apply a YAML configuration file to create or update resources like Pods, Deployments, and Services.</li>
+            <li><code>kubectl delete pod &lt;pod_name&gt;</code> - Remove a specific pod from the cluster.</li>
+            <li><code>kubectl get services</code> - Display all services running in the cluster, showing IPs and exposed ports.</li>
         </ul>
 
-        
+        <h4>Advanced Kubernetes Commands:</h4>
+        <ul>
+            <li><code>kubectl rollout restart deployment &lt;deployment_name&gt;</code> - Restart a deployment to update all Pods with the latest configuration.</li>
+            <li><code>kubectl get nodes</code> - List all nodes in the cluster, showing their status, resources, and conditions.</li>
+            <li><code>kubectl exec -it &lt;pod_name&gt; -- /bin/bash</code> - Start a shell session inside a running container in a pod, useful for debugging.</li>
+            <li><code>kubectl logs &lt;pod_name&gt;</code> - Retrieve the logs of a specific pod for debugging purposes.</li>
+            <li><code>kubectl top nodes</code> - Display resource (CPU/memory) usage statistics for each node.</li>
+            <li><code>kubectl top pods</code> - Show resource usage of all running pods in the cluster.</li>
+            <li><code>kubectl expose deployment &lt;deployment_name&gt; --type=NodePort --port=8080</code> - Expose a deployment as a service on a specific port.</li>
+        </ul>
 
-        <a href="https://kubernetes.io/docs/" class="btn btn-primary">Kubernetes Documentation</a>
+        <h4>Scaling & Managing Kubernetes:</h4>
+        <ul>
+            <li><code>kubectl scale deployment &lt;deployment_name&gt; --replicas=3</code> - Scale the number of replicas (pods) for a deployment.</li>
+            <li><code>kubectl autoscale deployment &lt;deployment_name&gt; --min=1 --max=10 --cpu-percent=80</code> - Set up autoscaling based on CPU utilization.</li>
+            <li><code>kubectl delete deployment &lt;deployment_name&gt;</code> - Delete a deployment, removing all its pods.</li>
+        </ul>
+
+        <h4>Rich Resources for Learning Kubernetes:</h4>
+        <ul>
+            <li><a href="https://kubernetes.io/docs/" class="btn btn-primary">Official Kubernetes Documentation</a></li>
+            <li><a href="https://kubernetes.io/docs/tutorials/" class="btn btn-primary">Kubernetes Tutorials</a></li>
+            <li><a href="https://www.katacoda.com/courses/kubernetes" class="btn btn-primary">Katacoda: Kubernetes Interactive Scenarios</a></li>
+            <li><a href="https://www.udemy.com/course/kubernetes-the-complete-guide/" class="btn btn-primary">Udemy: Kubernetes Mastery</a></li>
+            <li><a href="https://www.kube.academy/" class="btn btn-primary">Kube Academy</a></li>
+        </ul>
+
+        <h4>Practice Sets:</h4>
+        <ul>
+            <li><strong>Basic:</strong> Create a new pod and expose it via a service, then inspect logs and debug the pod.</li>
+            <li><strong>Intermediate:</strong> Create a deployment with multiple replicas and use autoscaling based on CPU utilization.</li>
+            <li><strong>Advanced:</strong> Configure a multi-container pod with sidecar patterns, set up secrets, and use a config map for environment variables.</li>
+        </ul>
+
+        <h4>Best Practices for Kubernetes:</h4>
+        <ul>
+            <li><strong>Use Namespaces:</strong> Organize resources by teams or projects to isolate environments and control access.</li>
+            <li><strong>Keep Configurations as Code:</strong> Store YAML files in version control to track changes and rollback easily.</li>
+            <li><strong>Set Resource Limits:</strong> Define CPU and memory limits for each pod to prevent resource exhaustion.</li>
+            <li><strong>Monitor and Observe:</strong> Use tools like Prometheus, Grafana, and Kubernetes dashboard to keep an eye on resource usage and application health.</li>
+            <li><strong>Use Rolling Updates:</strong> Ensure zero downtime by using Kubernetes rolling updates during deployments.</li>
+            <li><strong>Leverage Helm:</strong> Use Helm charts to deploy complex applications with a single command.</li>
+        </ul>
     </div>
 </div>
 {% endblock %}
-
-
-    

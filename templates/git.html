@@ -2,29 +2,74 @@
 {% block content %}
 <h2>Git & Version Control</h2>
 <div class="card">
-    <div class="card-header">
-        <h3>Git Commands</h3>
+    <div class="card-header bg-primary text-white">
+        <h3>Mastering Git Commands & Best Practices</h3>
     </div>
     <div class="card-body">
-        <h4>Basic Commands:</h4>
+        <p><strong>Git</strong> is a distributed version control system used for tracking changes in source code during software development. It allows multiple people to collaborate, manage project versions, and provides a reliable mechanism to revert back to earlier stages when necessary.</p>
+        
+        <h4>Core Concepts:</h4>
         <ul>
-            <li><code>git init</code> - Initialize a new Git repository.</li>
-            <li><code>git clone &lt;url&gt;</code> - Clone a remote repository.</li>
-            <li><code>git status</code> - Show the working tree status.</li>
-            <li><code>git add &lt;file&gt;</code> - Stage changes for commit.</li>
-            <li><code>git commit -m "message"</code> - Commit changes with a message.</li>
+            <li><strong>Repository (repo):</strong> A storage location for your project files and history of their changes.</li>
+            <li><strong>Commit:</strong> A snapshot of your project at a specific point in time.</li>
+            <li><strong>Branch:</strong> A separate line of development, allowing experimentation without affecting the main codebase.</li>
+            <li><strong>Merge:</strong> Combining changes from one branch into another.</li>
+            <li><strong>Rebase:</strong> Reapply changes from one branch onto another to create a linear history.</li>
         </ul>
 
-        <h4>Advanced Commands:</h4>
+        <h4>Basic Git Commands (Every Developer Must Know):</h4>
         <ul>
-            <li><code>git branch</code> - List all branches.</li>
-            <li><code>git checkout -b &lt;branch&gt;</code> - Create a new branch and switch to it.</li>
-            <li><code>git merge &lt;branch&gt;</code> - Merge a branch into the current branch.</li>
-            <li><code>git stash</code> - Temporarily store changes you don’t want to commit yet.</li>
-            <li><code>git rebase</code> - Reapply commits on top of another base tip.</li>
+            <li><code>git init</code> - Initialize a new Git repository in the current directory.</li>
+            <li><code>git clone &lt;url&gt;</code> - Clone a remote repository from platforms like GitHub or GitLab.</li>
+            <li><code>git add &lt;file&gt;</code> - Stage a file (or use <code>git add .</code> to stage all changes).</li>
+            <li><code>git commit -m "message"</code> - Commit your changes with a descriptive message.</li>
+            <li><code>git pull</code> - Fetch and merge changes from a remote repository to your local repo.</li>
+            <li><code>git push</code> - Push your local changes to a remote repository.</li>
         </ul>
 
-        <a href="https://git-scm.com/docs" class="btn btn-primary">Git Documentation</a>
+        <h4>Branching & Collaboration:</h4>
+        <ul>
+            <li><code>git branch</code> - List all branches in the repository.</li>
+            <li><code>git checkout -b &lt;branch&gt;</code> - Create and switch to a new branch.</li>
+            <li><code>git merge &lt;branch&gt;</code> - Merge changes from another branch into your current branch.</li>
+            <li><code>git rebase &lt;branch&gt;</code> - Reapply commits from one branch on top of another to maintain a clean commit history.</li>
+            <li><code>git stash</code> - Temporarily save uncommitted changes, allowing you to work on a clean state without committing.</li>
+        </ul>
+
+        <h4>Advanced Git Commands & Best Practices:</h4>
+        <ul>
+            <li><code>git log</code> - View the commit history of your project.</li>
+            <li><code>git reset --hard &lt;commit&gt;</code> - Reset the current branch to a specific commit, discarding all changes after it.</li>
+            <li><code>git cherry-pick &lt;commit&gt;</code> - Apply a specific commit from one branch to another.</li>
+            <li><code>git reflog</code> - View the reference logs, which keep track of all updates made in the repository, even after a branch reset.</li>
+            <li><code>git tag</code> - Tag a specific commit to create a version reference (useful for marking releases).</li>
+        </ul>
+
+        <h4>Rich Resources for Learning & Practice:</h4>
+        <ul>
+            <li><a href="https://git-scm.com/docs" class="btn btn-primary">Official Git Documentation</a></li>
+            <li><a href="https://git-scm.com/book/en/v2" class="btn btn-primary">Pro Git Book (Free Online)</a></li>
+            <li><a href="https://learngitbranching.js.org/" class="btn btn-primary">Learn Git Branching (Interactive Tool)</a></li>
+            <li><a href="https://www.atlassian.com/git/tutorials" class="btn btn-primary">Atlassian Git Tutorials</a></li>
+            <li><a href="https://try.github.io/" class="btn btn-primary">Try Git (GitHub Learning Lab)</a></li>
+            <li><a href="https://www.udemy.com/course/git-and-github-crash-course/" class="btn btn-primary">Udemy: Git & GitHub Crash Course</a></li>
+        </ul>
+
+        <h4>Practice Sets:</h4>
+        <ul>
+            <li><strong>Basic:</strong> Set up a repository, create a branch, and commit changes.</li>
+            <li><strong>Intermediate:</strong> Work with multiple branches, resolve merge conflicts, and rebase branches.</li>
+            <li><strong>Advanced:</strong> Perform cherry-picks, use tags for versioning, and recover from mistakes using <code>git reflog</code> and <code>git reset</code>.</li>
+        </ul>
+
+        <h4>Best Practices for Git:</h4>
+        <ul>
+            <li><strong>Commit Often:</strong> Keep your commits small and focused, making it easier to track changes.</li>
+            <li><strong>Write Clear Messages:</strong> Descriptive commit messages help others (and your future self) understand what changed and why.</li>
+            <li><strong>Use Branches:</strong> Isolate new features or bug fixes in their own branches to prevent affecting the main codebase.</li>
+            <li><strong>Pull Before Push:</strong> Always pull updates from the remote repo before pushing your changes to avoid conflicts.</li>
+            <li><strong>Merge Regularly:</strong> Regularly merge your branch with the main branch to stay updated and reduce merge conflicts.</li>
+        </ul>
     </div>
 </div>
 {% endblock %}

@@ -1,26 +1,127 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>CI/CD Pipelines</h2>
-<div class="card">
+
+<div class="card mb-4">
     <div class="card-header">
-        <h3>CI/CD Commands</h3>
+        <h3>CI/CD Concepts</h3>
     </div>
     <div class="card-body">
-        <h4>Common Tools:</h4>
+        <p><strong>Continuous Integration (CI)</strong> is the practice of frequently merging code changes into a shared repository, where automated builds and tests are run. <strong>Continuous Deployment (CD)</strong> automates the release of validated code to production environments.</p>
+
+        <h4>Key Benefits of CI/CD:</h4>
         <ul>
-            <li>Jenkins</li>
-            <li>GitLab CI</li>
-            <li>CircleCI</li>
-            <li>Travis CI</li>
+            <li>Faster feedback on code changes, improving development efficiency.</li>
+            <li>Automated testing reduces the risk of bugs reaching production.</li>
+            <li>Frequent releases keep features and updates flowing to users quickly.</li>
+        </ul>
+
+        <h4>Best Practices:</h4>
+        <ul>
+            <li>Integrate frequently to avoid large, complex merges.</li>
+            <li>Ensure each commit is tested with automated testing pipelines.</li>
+            <li>Automate deployment to keep environments consistent.</li>
+            <li>Monitor the deployment process to catch any production issues early.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>CI/CD Tools</h3>
+    </div>
+    <div class="card-body">
+        <h4>Popular CI/CD Tools:</h4>
+        <ul>
+            <li><strong>Jenkins:</strong> Open-source automation server for building, testing, and deploying applications.</li>
+            <li><strong>GitLab CI:</strong> Built-in CI/CD features of GitLab to automate the software lifecycle.</li>
+            <li><strong>CircleCI:</strong> Cloud-based CI/CD tool to automate delivery pipelines.</li>
+            <li><strong>Travis CI:</strong> Service for building and testing projects hosted on GitHub.</li>
         </ul>
 
         <h4>Jenkins Example Commands:</h4>
-        <ul>
-            <li><code>jenkins-cli.jar -s &lt;url&gt; get-job &lt;job_name&gt;</code> - Retrieve job configuration.</li>
-            <li><code>jenkins-cli.jar -s &lt;url&gt; build &lt;job_name&gt;</code> - Trigger a build.</li>
-        </ul>
+        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; build &lt;job_name&gt;</code></pre>
+        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; create-job &lt;job_name&gt; &lt; config.xml</code></pre>
+        <pre><code>java -jar jenkins-cli.jar -s &lt;url&gt; delete-job &lt;job_name&gt;</code></pre>
 
-        <a href="https://www.jenkins.io/doc/" class="btn btn-primary">Jenkins Documentation</a>
+        <h4>Sample Jenkinsfile for Practice:</h4>
+        <pre><code>pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+}</code></pre>
     </div>
 </div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>Practice Sets</h3>
+    </div>
+    <div class="card-body">
+        <h4>Exercise 1: Set up a Simple Jenkins Job</h4>
+        <p>Set up a basic Jenkins pipeline with three stages: Build, Test, and Deploy. Use the provided Jenkinsfile as a guide and try running the pipeline locally.</p>
+
+        <h4>Exercise 2: Automate Testing with Jenkins</h4>
+        <p>Integrate a simple test into your Jenkins pipeline. Use a basic unit test framework (e.g., pytest for Python, JUnit for Java) and automate the testing step in your pipeline.</p>
+
+        <h4>Exercise 3: Git Integration with Jenkins</h4>
+        <p>Set up a Jenkins pipeline that automatically triggers a build whenever you push code to your GitHub repository.</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3>Resources & Tutorials</h3>
+    </div>
+    <div class="card-body">
+        <h4>Essential Resources:</h4>
+        <ul>
+            <li><a href="https://www.jenkins.io/doc/">Jenkins Documentation</a> - Official Jenkins documentation for setup, configuration, and pipelines.</li>
+            <li><a href="https://www.jenkins.io/doc/book/pipeline/">Jenkins Pipeline Documentation</a> - Learn how to write pipelines effectively in Jenkins.</li>
+            <li><a href="https://www.udemy.com/course/jenkins-the-complete-guide/">Udemy: Jenkins - The Complete Guide</a> - Comprehensive course on Jenkins, including pipelines and best practices.</li>
+            <li><a href="https://docs.gitlab.com/ee/ci/">GitLab CI Documentation</a> - Official documentation on setting up GitLab CI pipelines.</li>
+            <li><a href="https://circleci.com/docs/">CircleCI Documentation</a> - Learn how to build CI/CD pipelines with CircleCI.</li>
+        </ul>
+
+        <h4>Sample Code Snippets for Practice:</h4>
+        <pre><code>pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/user/repo.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh './build.sh'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './test.sh'
+            }
+        }
+    }
+}</code></pre>
+
+        <p>Explore and modify this pipeline by adding more stages, such as notifications, clean-up tasks, or deploying to a cloud environment.</p>
+    </div>
+</div>
+
 {% endblock %}

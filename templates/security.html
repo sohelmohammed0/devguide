@@ -2,23 +2,73 @@
 {% block content %}
 <h2>Security Testing with Trivy</h2>
 <div class="card">
-    <div class="card-header">
-        <h3>Trivy Commands</h3>
+    <div class="card-header bg-danger text-white">
+        <h3>Mastering Security Testing with Trivy</h3>
     </div>
     <div class="card-body">
-        <h4>Basic Commands:</h4>
+        <p><strong>Security Testing</strong> is an integral part of the software development lifecycle to identify, assess, and mitigate vulnerabilities before they are exploited. <strong>Trivy</strong> is a comprehensive, easy-to-use, and open-source vulnerability scanner. It scans for vulnerabilities in containers, filesystems, Git repositories, configuration files, and infrastructure as code (IaC).</p>
+
+        <h4>Core Concepts:</h4>
         <ul>
-            <li><code>trivy image &lt;image_name&gt;</code> - Scan a Docker image for vulnerabilities.</li>
-            <li><code>trivy fs &lt;directory&gt;</code> - Scan the filesystem for vulnerabilities.</li>
+            <li><strong>Container Security:</strong> Trivy identifies vulnerabilities in container images by comparing them to known CVEs (Common Vulnerabilities and Exposures).</li>
+            <li><strong>Filesystem Scanning:</strong> Trivy can scan local directories to detect outdated dependencies and vulnerable packages.</li>
+            <li><strong>Configuration File Auditing:</strong> Trivy checks configuration files (like Kubernetes manifests) for misconfigurations and insecure settings.</li>
         </ul>
 
-        <h4>Advanced Commands:</h4>
+        <h4>Basic Trivy Commands:</h4>
         <ul>
-            <li><code>trivy --severity HIGH,CRITICAL image &lt;image_name&gt;</code> - Scan with severity filters.</li>
-            <li><code>trivy --ignore-unfixed image &lt;image_name&gt;</code> - Ignore unfixed vulnerabilities.</li>
+            <li><code>trivy image &lt;image_name&gt;</code> - Scan a Docker image for known vulnerabilities (e.g., <code>trivy image nginx:latest</code>).</li>
+            <li><code>trivy fs &lt;directory&gt;</code> - Perform a security scan on a local filesystem directory (e.g., <code>trivy fs ./app</code>).</li>
+            <li><code>trivy config --ignore-unfixed &lt;file&gt;</code> - Audit configuration files (Kubernetes, Terraform, etc.) for insecure settings, ignoring vulnerabilities that don’t have a fix yet.</li>
         </ul>
 
-        <a href="https://aquasecurity.github.io/trivy/v0.20.0/docs/quickstart/" class="btn btn-primary">Trivy Documentation</a>
+        <h4>Advanced Trivy Commands:</h4>
+        <ul>
+            <li><code>trivy --severity HIGH,CRITICAL image &lt;image_name&gt;</code> - Perform a scan on a Docker image, filtering the results to only display vulnerabilities with high or critical severity.</li>
+            <li><code>trivy --ignore-unfixed image &lt;image_name&gt;</code> - Scan a Docker image and ignore vulnerabilities that are not yet fixed, focusing on actionable issues.</li>
+            <li><code>trivy --quiet image &lt;image_name&gt;</code> - Run the scan with minimal output, displaying only the total number of vulnerabilities found.</li>
+            <li><code>trivy repository &lt;repository_url&gt;</code> - Scan a GitHub or other Git repository for vulnerabilities in the code and dependencies (e.g., <code>trivy repository https://github.com/user/repo</code>).</li>
+            <li><code>trivy server</code> - Start Trivy in server mode to provide vulnerability scanning services to multiple clients within a network.</li>
+        </ul>
+
+        <h4>Trivy with Kubernetes:</h4>
+        <ul>
+            <li><code>trivy k8s cluster</code> - Scan an entire Kubernetes cluster for vulnerabilities and misconfigurations, generating a detailed report.</li>
+            <li><code>trivy k8s --report all</code> - Generate a comprehensive report for a Kubernetes cluster, including vulnerabilities, configuration issues, and compliance checks.</li>
+            <li><code>trivy k8s --format json</code> - Output scan results in JSON format, allowing for easy integration with CI/CD pipelines or external systems.</li>
+        </ul>
+
+        <h4>Best Practices for Using Trivy:</h4>
+        <ul>
+            <li><strong>Regular Scans:</strong> Integrate Trivy into your CI/CD pipeline to automatically scan images, filesystems, and configuration files as part of the build process.</li>
+            <li><strong>Prioritize High Severity:</strong> Focus on high and critical vulnerabilities first to reduce the most significant security risks.</li>
+            <li><strong>Automate Security Audits:</strong> Use Trivy to continuously monitor container images and infrastructure as code for vulnerabilities.</li>
+            <li><strong>Monitor Configuration Files:</strong> Regularly audit your Kubernetes and infrastructure configurations with Trivy to avoid common misconfigurations that expose your system to attacks.</li>
+            <li><strong>Use Server Mode:</strong> In large environments, use Trivy in server mode to enable distributed security scanning across multiple clients and services.</li>
+        </ul>
+
+        <h4>Resources for Learning and Documentation:</h4>
+        <ul>
+            <li><a href="https://aquasecurity.github.io/trivy/v0.20.0/docs/quickstart/" class="btn btn-primary">Trivy Documentation</a></li>
+            <li><a href="https://blog.aquasec.com/trivy-container-scanner" class="btn btn-primary">Trivy Blog Post</a></li>
+            <li><a href="https://github.com/aquasecurity/trivy" class="btn btn-primary">Trivy GitHub Repository</a></li>
+            <li><a href="https://www.udemy.com/course/docker-container-security-best-practices/" class="btn btn-primary">Udemy: Container Security Best Practices</a></li>
+            <li><a href="https://cloudsecurityalliance.org/research/security-guidance" class="btn btn-primary">Cloud Security Alliance Guidance</a></li>
+        </ul>
+
+        <h4>Hands-on Exercises:</h4>
+        <ul>
+            <li><strong>Basic:</strong> Set up Trivy in your local development environment and scan a sample Docker image (e.g., nginx) for vulnerabilities.</li>
+            <li><strong>Intermediate:</strong> Integrate Trivy into your CI/CD pipeline to automatically scan Docker images during builds.</li>
+            <li><strong>Advanced:</strong> Set up a Trivy server in a Kubernetes cluster and use it to scan all running pods and containers for vulnerabilities and misconfigurations.</li>
+        </ul>
+
+        <h4>Integration with DevOps Tools:</h4>
+        <ul>
+            <li><strong>Jenkins:</strong> Integrate Trivy scans into Jenkins pipelines for continuous security auditing of container images.</li>
+            <li><strong>GitLab CI:</strong> Add Trivy as a security scanning step in GitLab CI pipelines to detect vulnerabilities during the build process.</li>
+            <li><strong>ArgoCD:</strong> Use Trivy with ArgoCD to ensure only secure container images are deployed to your Kubernetes clusters.</li>
+        </ul>
     </div>
 </div>
 {% endblock %}
