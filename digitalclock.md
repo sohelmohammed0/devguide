@@ -1,4 +1,4 @@
-        }
+
 
         /* 3D Digital Clock */
         .digital-clock {
