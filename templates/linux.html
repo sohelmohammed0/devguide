@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Linux Command Line & System Administration</h1>
+<div class="card">
+    <div class="card-header">
+        <h3>Comprehensive Guide to Linux</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Linux</strong> is a powerful and versatile operating system widely used in servers, development environments, and cloud infrastructure. This guide will introduce you to essential Linux commands, system administration practices, and best practices to manage and automate tasks on Linux systems efficiently.</p>
+
+        <h4>What is Linux?</h4>
+        <p>Linux is an open-source operating system based on the Unix architecture. It is known for its stability, security, and scalability, making it a preferred choice for servers, networking, and DevOps. Linux is also used in various distributions like Ubuntu, CentOS, Red Hat, and Debian.</p>
+
+        <h4>Why Learn Linux?</h4>
+        <p>Mastering Linux is essential for system administrators, developers, and DevOps engineers. Linux offers powerful tools for automation, system configuration, and package management. It’s widely used in cloud computing, infrastructure management, and is the backbone of many CI/CD pipelines.</p>
+
+        <h4>Basic Linux Commands:</h4>
+        <ul>
+            <li><code>ls</code> - Lists files and directories in the current directory.</li>
+            <li><code>cd &lt;directory&gt;</code> - Changes the current directory to the specified one.</li>
+            <li><code>mkdir &lt;directory&gt;</code> - Creates a new directory.</li>
+            <li><code>touch &lt;file&gt;</code> - Creates an empty file.</li>
+            <li><code>rm &lt;file&gt;</code> - Deletes a file (use <code>-r</code> for directories).</li>
+            <li><code>cp &lt;source&gt; &lt;destination&gt;</code> - Copies a file or directory.</li>
+            <li><code>mv &lt;source&gt; &lt;destination&gt;</code> - Moves or renames files and directories.</li>
+            <li><code>cat &lt;file&gt;</code> - Displays the content of a file.</li>
+        </ul>
+
+        <h4>Intermediate Commands and Concepts:</h4>
+        <ul>
+            <li><code>chmod &lt;permissions&gt; &lt;file&gt;</code> - Changes the permissions of a file or directory.</li>
+            <li><code>chown &lt;user&gt;:&lt;group&gt; &lt;file&gt;</code> - Changes the owner and group of a file or directory.</li>
+            <li><code>grep &lt;pattern&gt; &lt;file&gt;</code> - Searches for a pattern in files and displays matching lines.</li>
+            <li><code>find &lt;directory&gt; -name &lt;filename&gt;</code> - Searches for files in a directory hierarchy.</li>
+            <li><code>ps aux</code> - Displays a snapshot of all running processes.</li>
+            <li><code>kill &lt;pid&gt;</code> - Terminates a process by its Process ID (PID).</li>
+        </ul>
+
+        <h4>Advanced Linux Topics:</h4>
+        <ul>
+            <li><strong>Bash Scripting:</strong> Automate tasks and manage repetitive tasks using shell scripts. <a href="https://tldp.org/LDP/abs/html/" class="btn btn-primary">Learn Bash Scripting</a></li>
+            <li><strong>User Management:</strong> Manage users and groups, permissions, and security. <a href="https://linux.die.net/man/1/useradd" class="btn btn-primary">User Management Documentation</a></li>
+            <li><strong>Package Management:</strong> Use <code>apt</code> (for Debian/Ubuntu) or <code>yum</code> (for Red Hat/CentOS) to manage software. <a href="https://linuxize.com/post/how-to-use-apt-command/" class="btn btn-primary">APT Package Management</a></li>
+            <li><strong>System Monitoring:</strong> Monitor system performance with <code>top</code>, <code>htop</code>, and <code>df</code> for disk usage. <a href="https://www.tecmint.com/command-line-tools-to-monitor-linux-performance/" class="btn btn-primary">System Monitoring Tools</a></li>
+            <li><strong>Firewall Configuration:</strong> Manage firewall rules using <code>ufw</code> (Uncomplicated Firewall) or <code>iptables</code>. <a href="https://help.ubuntu.com/community/UFW" class="btn btn-primary">UFW Documentation</a></li>
+        </ul>
+
+        <h4>Step-by-Step Guide to Linux:</h4>
+        <ol>
+            <li><strong>Install Linux:</strong> Set up a Linux distribution (e.g., Ubuntu) on your system or use a virtual machine. <a href="https://ubuntu.com/download/desktop" class="btn btn-primary">Ubuntu Downloads</a></li>
+            <li><strong>Explore the File System:</strong> Navigate through directories using <code>ls</code>, <code>cd</code>, and manage files with <code>touch</code>, <code>mkdir</code>, and <code>rm</code>.</li>
+            <li><strong>System Administration:</strong> Manage users, services, and processes using <code>useradd</code>, <code>service</code>, and <code>ps</code>.</li>
+            <li><strong>Package Management:</strong> Install and manage software using <code>apt</code> or <code>yum</code>. Try installing <code>nginx</code> or <code>apache2</code>.</li>
+            <li><strong>Automate Tasks:</strong> Write simple Bash scripts to automate file backups, process management, or network monitoring.</li>
+        </ol>
+
+        <h4>Hands-On Practice Sets:</h4>
+        <p>Here are some practice sets to build your skills:</p>
+        <ul>
+            <li>Create and manage users, assign them specific permissions using <code>chmod</code> and <code>chown</code>.</li>
+            <li>Install a web server (like Nginx) and configure it to serve a static website.</li>
+            <li>Write a Bash script to automate file backups at specific intervals.</li>
+            <li>Set up a cron job to run your Bash script periodically.</li>
+        </ul>
+
+        <h4>Best Practices:</h4>
+        <ul>
+            <li>Always use <strong>sudo</strong> for administrative commands to prevent accidental system changes.</li>
+            <li>Use <strong>Bash scripts</strong> to automate tasks and reduce manual effort.</li>
+            <li>Keep your <strong>system updated</strong> regularly using <code>apt update && apt upgrade</code> or equivalent.</li>
+            <li>Follow <strong>security best practices</strong> like disabling root login, using SSH keys, and configuring firewalls.</li>
+            <li>Leverage <strong>package managers</strong> to install and update software efficiently.</li>
+        </ul>
+
+        <h4>Useful Resources:</h4>
+        <ul>
+            <li><a href="https://www.linux.org/pages/download/" class="btn btn-primary">Official Linux Documentation</a></li>
+            <li><a href="https://ubuntu.com/tutorials" class="btn btn-primary">Ubuntu Tutorials</a></li>
+            <li><a href="https://github.com/torvalds/linux" class="btn btn-primary">Linux GitHub Repository</a></li>
+            <li><a href="https://www.youtube.com/results?search_query=linux" class="btn btn-primary">Linux Tutorials on YouTube</a></li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #2875b1;
+        color: #fff;
+        display: flex;
+        min-height: 100vh;
+    }
+
+    nav {
+        width: 250px;
+        background-color: #13132b;
+        padding: 30px 20px;
+        position: fixed;
+        height: 100%;
+        box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
+    }
+
+    nav h1 {
+        color: #29ff30;
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    nav ul li {
+        margin-bottom: 25px;
+    }
+
+    nav ul li a {
+        color: #1e7c8b;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #09ff00;
+    }
+
+    main {
+        margin-left: 270px;
+        padding: 50px;
+        flex: 1;
+        background: linear-gradient(135deg, #1e2026 0%, #0b0c12 100%);
+    }
+
+    .card {
+        background-color: #1e212d;
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    h4, p {
+        color: #29ff30;
+    }
+
+    a.btn {
+        background-color: #29ff30;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 15px;
+        color: #000;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    a.btn:hover {
+        background-color: #09ff00;
+        color: #fff;
+    }
+</style>
+{% endblock %}
