@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    docker.build('yourdockerhubusername/flask-app')i
+                    docker.build('sohelqt8797/flask-app')i
                 }
             }
         }
