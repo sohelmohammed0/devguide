@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Cloning the repository...'
                 git 'https://github.com/sohelmohammed0/devguide.git'  // replace with your repository URL
+		git credentialsId: 'Git-creds', url: 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
 
@@ -30,3 +31,5 @@ pipeline {
         }
     }
 }
+
+
