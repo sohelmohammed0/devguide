@@ -1,35 +1,43 @@
 pipeline {
     agent any
 
+    environment {
+        VENV_PATH = "${WORKSPACE}/venv"
+    }
+
     stages {
         stage('Clone Repository') {
             steps {
-                echo 'Cloning the repository...'
-                git 'https://github.com/sohelmohammed0/devguide.git'  // replace with your repository URL
-		git credentialsId: 'Git-creds', url: 'https://github.com/sohelmohammed0/devguide.git'
+                git branch: 'main', url: 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
-
-        stage('Build Docker Image') {
+        stage('Set up Python Environment') {
             steps {
-                script {
-                    echo 'Building Docker image...'
-                    docker.build('sohelqt8797/flask-app')i
-                }
+                sh 'python3 -m venv $VENV_PATH'
+                sh 'source $VENV_PATH/bin/activate && pip install -r requirements.txt'
             }
         }
-
-        stage('Push Docker Image') {
+        stage('Run Tests') {
+            steps {
+                sh 'source $VENV_PATH/bin/activate && pytest'
+            }
+        }
+        stage('Build and Deploy') {
             steps {
                 script {
-                    echo 'Pushing Docker image to Docker Hub...'
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
-                        docker.image('sohelqt8797/flask-app').push()
-                    }
+                    sh 'source $VENV_PATH/bin/activate && python app.py'
                 }
             }
         }
     }
-}
 
+    post {
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Build Failed!'
+        }
+    }
+}
 
