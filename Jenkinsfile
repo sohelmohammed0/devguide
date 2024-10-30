@@ -1,52 +1,52 @@
 pipeline {
-    agent any 
+    agent any
 
     environment {
-        VENV_PATH = 'venv'  // Define the path for the virtual environment
+        DOCKER_IMAGE = 'sohelqt8797/flask-app'
+        DOCKER_CREDENTIALS = 'dockerhub-credentials' // Create and use a Docker ID in Jenkins credentials
+        GIT_REPO = 'https://github.com/sohelmohammed0/devguide.git'
     }
 
     stages {
-        stage('Set up Python Environment') {
+        stage('Clone Repository') {
             steps {
-                // Create a Python virtual environment
-                sh 'python3 -m venv ${VENV_PATH}'
+                git url: "${GIT_REPO}", branch: 'main'
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${DOCKER_IMAGE}:latest")
+                }
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Push Docker Image') {
             steps {
-                // Activate the virtual environment and install dependencies
-                sh '''
-                . ${VENV_PATH}/bin/activate
-                pip install -r requirements.txt
-                '''
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', "${DOCKER_CREDENTIALS}") {
+                        docker.image("${DOCKER_IMAGE}:latest").push()
+                    }
+                }
             }
         }
-
-        stage('Run Tests') {
+        
+        stage('Deploy to Server') {
             steps {
-                // Activate the virtual environment and run tests
-                sh '''
-                . ${VENV_PATH}/bin/activate
-                pytest
-                '''
-            }
-        }
-
-        stage('Build and Deploy') {
-            steps {
-                // Placeholder for build and deployment steps
-                echo 'Build and deployment steps go here'
+                // Replace this with actual SSH or deployment steps
+                sh 'docker pull your-dockerhub-username/your-image-name:latest'
+                sh 'docker stop your-container-name || true'
+                sh 'docker rm your-container-name || true'
+                sh 'docker run -d --name your-container-name -p 80:80 your-dockerhub-username/your-image-name:latest'
             }
         }
     }
-
-    post {                                                                                                                                                          
-        success {                                                                                                                                                       
-            echo 'Build Succeeded!'                                                                                                                                 
-        }                                                                                                                                                           
-        failure {                                                                                                                                                       
-            echo 'Build Failed!'
-        }                                                                                                                                                       
+    
+    post {
+        always {
+            cleanWs() // Cleans workspace after job
+        }
     }
 }
+
