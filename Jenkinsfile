@@ -1,42 +1,52 @@
 pipeline {
     agent any
 
-    environment {
-        VENV_PATH = "${WORKSPACE}/venv"
-    }
-
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/sohelmohammed0/devguide.git'
+                // Clone the repository
+                git url: 'https://github.com/sohelmohammed0/devguide.git', credentialsId: 'Git-creds'
             }
         }
+        
         stage('Set up Python Environment') {
             steps {
-                sh 'python3 -m venv $VENV_PATH'
-                sh 'source $VENV_PATH/bin/activate && pip install -r requirements.txt'
+                // Create and activate the virtual environment using a dot (.) instead of source
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                '''
             }
         }
+        
         stage('Run Tests') {
             steps {
-                sh 'source $VENV_PATH/bin/activate && pytest'
+                // Run tests
+                sh '''
+                    . venv/bin/activate
+                    python -m unittest discover -s tests
+                '''
             }
         }
+        
         stage('Build and Deploy') {
             steps {
-                script {
-                    sh 'source $VENV_PATH/bin/activate && python app.py'
-                }
+                // Example deployment step
+                sh '''
+                    . venv/bin/activate
+                    python deploy.py
+                '''
             }
         }
     }
-
+    
     post {
-        success {
-            echo 'Deployment Successful!'
-        }
         failure {
             echo 'Build Failed!'
+        }
+        success {
+            echo 'Build Succeeded!'
         }
     }
 }
