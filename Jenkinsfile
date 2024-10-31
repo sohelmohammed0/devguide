@@ -1,15 +1,16 @@
 pipeline {
     agent any
+    i
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials') // Make sure 'docker-hub' is the correct ID for your Docker Hub credentials
-        DOCKER_IMAGE = 'sohelqt8797/flask-app'
+        DOCKER_IMAGE = 'sohelqt8797/flask-app:latest' // Update this to match your Docker image name
     }
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/sohelmohammed0/devguide.git'
+                git branch: 'main', url: 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -17,6 +18,7 @@ pipeline {
                 }
             }
         }
+
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
@@ -26,6 +28,7 @@ pipeline {
                 }
             }
         }
+
         stage('Deploy') {
             steps {
                 script {
