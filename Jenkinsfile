@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub') // Add Docker Hub credentials in Jenkins
-        DOCKER_IMAGE = 'ohelqt8797flask-app'
+        DOCKER_HUB_CREDENTIALS = dockerhub-credentials('docker-hub') // Add Docker Hub credentials in Jenkins
+        DOCKER_IMAGE = 'sohelqt8797/flask-app'
     }
     stages {
         stage('Clone Repository') {
