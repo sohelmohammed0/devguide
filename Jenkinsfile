@@ -1,61 +1,41 @@
 pipeline {
     agent any
-
     environment {
-        // Docker credentials for pushing to Docker Hub
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials'
-        DOCKER_HUB_REPO = 'sohelqt8797/flask-app'
+        DOCKER_HUB_CREDENTIALS = credentials('docker-hub') // Add Docker Hub credentials in Jenkins
+        DOCKER_IMAGE = 'ohelqt8797flask-app'
     }
-
     stages {
         stage('Clone Repository') {
             steps {
-                // Clone the repository from GitHub
-                git url: 'https://github.com/sohelmohammed0/devguide.git', credentialsId: 'Git-credentials'
+                git 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker image
-                    sh 'docker build -t ${DOCKER_HUB_REPO}:latest .'
+                    sh 'docker build -t $DOCKER_IMAGE .'
                 }
             }
         }
-
-        stage('Push Docker Image') {
+        stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
-                    // Login and push Docker image to Docker Hub
-                    withCredentials([usernamePassword(credentialsId: "${DOCKER_HUB_CREDENTIALS}", passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-                        sh "docker tag ${DOCKER_HUB_REPO}:latest ${DOCKER_HUB_REPO}:latest"
-                        sh "docker push ${DOCKER_HUB_REPO}:latest"
+                    docker.withRegistry('https://registry.hub.docker.com', 'DOCKER_HUB_CREDENTIALS') {
+                        sh 'docker push $DOCKER_IMAGE'
                     }
                 }
             }
         }
-
-        stage('Deploy Locally') {
+        stage('Deploy') {
             steps {
+                // Example of deploying using Docker container restart
                 script {
-                    // Pull the latest Docker image and run the container locally
-                    sh """
-                    docker pull ${DOCKER_HUB_REPO}:latest
-                    docker stop flask-app || true
-                    docker rm flask-app || true
-                    docker run -d --name flask-app -p 80:5000 ${DOCKER_HUB_REPO}:latest
-                    """
+                    sh 'docker pull $DOCKER_IMAGE'
+                    sh 'docker stop flask-container || true'
+                    sh 'docker rm flask-container || true'
+                    sh 'docker run -d --name flask-container -p 80:80 $DOCKER_IMAGE'
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up workspace after job completes
-            cleanWs()
         }
     }
 }
