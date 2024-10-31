@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_CREDENTIALS = dockerhub-credentials('docker-hub') // Add Docker Hub credentials in Jenkins
+        DOCKER_HUB_CREDENTIALS = credentials('dockerhub-credentials') // Make sure 'docker-hub' is the correct ID for your Docker Hub credentials
         DOCKER_IMAGE = 'sohelqt8797/flask-app'
     }
     stages {
@@ -28,7 +28,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Example of deploying using Docker container restart
                 script {
                     sh 'docker pull $DOCKER_IMAGE'
                     sh 'docker stop flask-container || true'
