@@ -23,7 +23,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                    docker.withRegistry('https://index.docker.io/v1/', 'Dockerhub-PAT') {
                         sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
                     }
                 }
