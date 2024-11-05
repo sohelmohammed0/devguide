@@ -17,26 +17,27 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #590b87f6;
-            color: #ffffff;
+            background-color: #1f1f2e;
+            color: #fff;
             display: flex;
             min-height: 100vh;
         }
 
         /* Sidebar Navigation */
         nav {
-            width: 250px;
-            background-color: #0ca8b7;
+            width: 260px;
+            background-color: #29294d;
             padding: 30px 20px;
             position: fixed;
             height: 100%;
             top: 0;
             left: 0;
-            box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
+            transition: width 0.3s ease;
         }
 
         nav h1 {
-            color: #7615b7;
+            color: #00d4ff;
             font-size: 1.8rem;
             text-transform: uppercase;
             margin-bottom: 40px;
@@ -51,26 +52,35 @@
         }
 
         nav ul li a {
-            color: #2fbe1f;
-            font-size: 1.2rem;
+            color: #a6a6df;
+            font-size: 1.1rem;
             text-decoration: none;
             display: flex;
             align-items: center;
+            padding: 10px;
+            border-radius: 8px;
             transition: 0.3s;
         }
 
         nav ul li a i {
             margin-right: 15px;
             font-size: 1.5rem;
+            color: #00c7e5;
+            transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #a48c43;
+            background-color: #44447a;
+            color: #fff;
+        }
+
+        nav ul li a:hover i {
+            color: #00eaff;
         }
 
         /* Main content */
         main {
-            margin-left: 270px;
+            margin-left: 280px;
             padding: 50px;
             flex: 1;
         }
@@ -81,24 +91,22 @@
         }
 
         header h1 {
-    font-size: 3.5rem; /* Balanced size for emphasis */
-    color: #3f502c; /* Dark blue-gray for a clean, professional look */
-    font-family: 'Roboto', sans-serif; /* Modern, easy-to-read font */
-    font-weight: 700; /* Bold but not too heavy */
-    text-transform: capitalize; /* Capitalizes the first letter for a refined touch */
-    letter-spacing: 1px; /* Slight letter spacing for clarity */
-    background: linear-gradient(90deg, #94ad24, #11994c); /* Cool gradient for a smooth, calm vibe */
-    padding: 15px 30px; /* Extra space for breathing room */
-    border-radius: 12px; /* Smooth rounded edges */
-    text-align: center; /* Center the text */
-    box-shadow: 0px 4px 10px rgba(161, 28, 28, 0.1); /* Soft shadow for depth */
-    transition: transform 0.3s ease; /* Adds a hover effect */
-}
+            font-size: 3.5rem;
+            color: #00d4ff;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #00c7e5, #0024ff);
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-header h1:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover for interactivity */
-}
-
+        header h1:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
 
         /* Card Container */
         .card-container {
@@ -110,51 +118,54 @@ header h1:hover {
 
         /* Individual Card */
         .card {
-            background-color: rgba(29, 184, 106, 0.08);
-            padding: 25px;
-            border-radius: 15px;
+            background-color: #2d2d44;
+            padding: 30px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             transition: transform 0.4s, box-shadow 0.4s;
         }
 
         .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         .card i {
             font-size: 3rem;
-            color: #030813e1;
+            color: #00eaff;
             margin-bottom: 20px;
             transition: color 0.4s;
         }
 
         .card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            color: #fff;
+            color: #e6e6ff;
         }
 
         .card p {
             font-size: 1rem;
-            color: #aaa;
+            color: #b0b0d9;
             margin-bottom: 25px;
         }
 
         .card a {
-            background-color: #0cb845;
-            color: #6d871b;
-            padding: 10px 20px;
-            border-radius: 10px;
+            background: linear-gradient(90deg, #00c7e5, #0024ff);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: background-color 0.3s;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
         .card a:hover {
-            background-color: #ffcc29;
+            background: linear-gradient(90deg, #00eaff, #00d4ff);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Floating Action Button */
@@ -184,7 +195,7 @@ header h1:hover {
         /* Responsive design */
         @media (max-width: 768px) {
             nav {
-                width: 100px;
+                width: 80px;
             }
 
             nav h1 {
@@ -219,7 +230,7 @@ header h1:hover {
             <li><a href="#cicd"><i class="fas fa-tools"></i>CI/CD</a></li>
             <li><a href="#monitoring"><i class="fas fa-chart-line"></i>Monitoring</a></li>
             <li><a href="#security"><i class="fas fa-shield-alt"></i>Security</a></li>
-            <li><a href="#linux"><i class="fas fa-terminal"></i> Linux</a></li>
+            <li><a href="#linux"><i class="fas fa-terminal"></i>Linux</a></li>
         </ul>
     </nav>
 
@@ -250,51 +261,48 @@ header h1:hover {
                 <h3>Kubernetes</h3>
                 <p>Automate deployment, scaling, and management of containerized applications with Kubernetes.</p>
                 <a href="/kubernetes">Learn More</a>
-            </div>            
-            
+            </div>
 
             <div class="card" id="terraform">
-                <i class="fas fa-cloud"></i>
+                <i class="fas fa-tools"></i>
                 <h3>Terraform & IaC</h3>
-                <p>Leverage Infrastructure as Code with Terraform for automated cloud resource management.</p>
+                <p>Use Terraform for Infrastructure as Code, manage infrastructure across multiple providers.</p>
                 <a href="/terraform">Learn More</a>
             </div>
 
             <div class="card" id="cicd">
                 <i class="fas fa-tools"></i>
-                <h3>CI/CD Pipelines</h3>
-                <p>Set up robust CI/CD pipelines to automate the build, test, and deploy process.</p>
+                <h3>CI/CD Pipeline</h3>
+                <p>Implement CI/CD practices to automate testing and deployment for efficient workflows.</p>
                 <a href="/cicd">Learn More</a>
             </div>
 
             <div class="card" id="monitoring">
                 <i class="fas fa-chart-line"></i>
-                <h3>Monitoring & Logging</h3>
-                <p>Implement monitoring with Prometheus and logging with ELK Stack to ensure system reliability.</p>
+                <h3>Monitoring & Metrics</h3>
+                <p>Learn Prometheus & Grafana to ensure application stability through monitoring.</p>
                 <a href="/monitoring">Learn More</a>
             </div>
 
             <div class="card" id="security">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Security & Compliance</h3>
-                <p>Security and compliance are essential for protecting systems from threats and ensuring data privacy. They help organizations meet regulatory requirements and avoid costly breaches. Together, they foster trust and uphold the integrity of critical operations.</p>
+                <h3>Security Practices</h3>
+                <p>Understand DevSecOps, vulnerability scanning, and container security.</p>
                 <a href="/security">Learn More</a>
             </div>
 
-            <div class="card-container">
-                <div class="card" id="linux">
-                    <i class="fas fa-terminal"></i>
-                    <h3>Linux Command Line & System Administration</h3>
-                    <p>open-source, Unix-like operating system widely used for servers, development environments, and personal computing. Flexibility, security, and robustness, it's the backbone of many modern technologies and cloud infrastructures</p>
-                    <a href="/linux">Learn More</a>
-                </div>
-
+            <div class="card" id="linux">
+                <i class="fas fa-terminal"></i>
+                <h3>Linux Essentials</h3>
+                <p>Develop Linux skills crucial for servers, containers, and cloud environments.</p>
+                <a href="/linux">Learn More</a>
+            </div>
         </div>
     </main>
 
     <!-- Floating Action Button -->
     <button class="floating-btn">
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-arrow-up"></i>
     </button>
 
 </body>
