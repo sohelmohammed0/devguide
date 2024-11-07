@@ -1,56 +1,49 @@
 pipeline {
     agent any
-    
+
     environment {
-        // Replace these with your Docker credentials and image name
-        DOCKER_CREDENTIALS_ID = 'Dockerhub-PAT'
-        DOCKER_IMAGE = 'sohelqt8797/flask-app'
+        IMAGE_NAME = "sohelqt8797/flask_app"
     }
-    
+
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/sohelmohammed0/devguide.git'
+                git 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
-        
+
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build the Docker image
-                    docker.build("${DOCKER_IMAGE}:${env.BUILD_ID}")
+                    sh 'docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} .'
                 }
             }
         }
-        
-        stage('Push Docker Image') {
+
+        stage('Push to Docker Hub') {
             steps {
                 script {
-                    // Login and push to Docker Hub or other registry
-                    docker.withRegistry('', "${DOCKER_CREDENTIALS_ID}") {
-                        docker.image("${DOCKER_IMAGE}:${env.BUILD_ID}").push()
-                        docker.image("${DOCKER_IMAGE}:${env.BUILD_ID}").push("latest")
+                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
+                        sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
                     }
                 }
             }
         }
-        
+
         stage('Deploy') {
             steps {
-                // Deploy the container (e.g., using Kubernetes or Docker Compose)
-                echo "Deploying the application..."
-                // Here, you could integrate Kubernetes deployment commands or Docker Compose
-                // Example: sh 'kubectl apply -f k8s-deployment.yaml'
+                script {
+                    sh 'docker stop flask_app || true'
+                    sh 'docker rm flask_app || true'
+                    sh 'docker run -d --name flask_app -p 5000:5000 ${IMAGE_NAME}:${BUILD_NUMBER}'
+                }
             }
         }
     }
-    
+
     post {
-        success {
-            echo "Build, push, and deployment successful!"
-        }
-        failure {
-            echo "Build, push, or deployment failed."
+        always {
+            cleanWs()
         }
     }
 }
