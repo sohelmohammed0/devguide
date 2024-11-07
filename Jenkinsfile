@@ -1,49 +1,37 @@
 pipeline {
     agent any
-
     environment {
-        IMAGE_NAME = "sohelqt8797/flask_app"
+        DOCKER_IMAGE = 'sohelqt8797/flask-app'
     }
-
     stages {
         stage('Clone Repository') {
             steps {
                 git 'https://github.com/sohelmohammed0/devguide.git'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} .'
+                    docker.build("${DOCKER_IMAGE}:latest")
                 }
             }
         }
-
-        stage('Push to Docker Hub') {
+        stage('Push Docker Image') {
             steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-                        sh 'docker push ${IMAGE_NAME}:${BUILD_NUMBER}'
+                withCredentials([usernamePassword(credentialsId: 'Dockerhub-PAT', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) {
+                    script {
+                        docker.image("${DOCKER_IMAGE}:latest").push()
                     }
                 }
             }
         }
-
         stage('Deploy') {
             steps {
-                script {
-                    sh 'docker stop flask_app || true'
-                    sh 'docker rm flask_app || true'
-                    sh 'docker run -d --name flask_app -p 5000:5000 ${IMAGE_NAME}:${BUILD_NUMBER}'
-                }
+                // Example step to deploy on your server or cloud provider
+                sh 'docker pull ${DOCKER_IMAGE}:latest'
+                sh 'docker stop your_flask_container || true && docker rm your_flask_container || true'
+                sh 'docker run -d --name your_flask_container -p 80:5000 ${DOCKER_IMAGE}:latest'
             }
-        }
-    }
-
-    post {
-        always {
-            cleanWs()
         }
     }
 }
