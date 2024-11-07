@@ -1,64 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container mt-5">
-    <!-- Section: Header -->
-    <div class="text-center mb-4">
-        <h2 class="display-4 text-gradient">Git & Version Control</h2>
-        <p class="lead"><strong>Master the essentials of version control using Git </strong></p>
+
+<div class="card mb-4">
+    <h1 class="display-4 text-gradient">Git & Version Control</h1>
+    <p class="lead"><strong><center>Master the essentials of version control using Git</center></strong></p>
     </div>
+    <div class="card-body">
+        <p><strong>Git</strong> is a distributed version control system used for tracking changes in source code. It enables collaboration and version control, making it easy to revert to earlier stages of development.</p>
 
-    <!-- Section: Card Content -->
-    <div class="card shadow-lg border-0 mb-4 rounded-3">
-        <div class="card-header bg-gradient-primary text-white text-center py-4">
-            <h3>Mastering Git Commands & Best Practices</h3>
-        </div>
-        <div class="card-body p-5">
-            <!-- Git Overview -->
-            <p class="fs-5"><strong>Git</strong> is a distributed version control system used for tracking changes in source code. It enables collaboration and version control, making it easy to revert to earlier stages of development.</p>
-            
-            <!-- Core Concepts -->
-            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-code-branch"></i> Core Concepts</h4>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item"><strong>Repository (repo):</strong> A storage location for project files and their change history.</li>
-                <li class="list-group-item"><strong>Commit:</strong> A snapshot of your project at a specific point in time.</li>
-                <li class="list-group-item"><strong>Branch:</strong> A separate line of development, allowing experimentation without affecting the main codebase.</li>
-                <li class="list-group-item"><strong>Merge:</strong> Combining changes from one branch into another.</li>
-                <li class="list-group-item"><strong>Rebase:</strong> Reapply changes from one branch onto another to create a linear history.</li>
-            </ul>
+        <!-- Core Concepts -->
+        <h4 class="text-primary mt-4 mb-3"><i class="fas fa-code-branch"></i> Core Concepts</h4>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><strong>Repository (repo):</strong> A storage location for project files and their change history.</li>
+            <li class="list-group-item"><strong>Commit:</strong> A snapshot of your project at a specific point in time.</li>
+            <li class="list-group-item"><strong>Branch:</strong> A separate line of development, allowing experimentation without affecting the main codebase.</li>
+            <li class="list-group-item"><strong>Merge:</strong> Combining changes from one branch into another.</li>
+            <li class="list-group-item"><strong>Rebase:</strong> Reapply changes from one branch onto another to create a linear history.</li>
+        </ul>
 
-            <!-- Basic Git Commands -->
-            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-terminal"></i> Basic Git Commands (Every Developer Must Know)</h4>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item"><code>git init</code> - Initialize a new Git repository.</li>
-                <li class="list-group-item"><code>git clone &lt;url&gt;</code> - Clone a remote repository.</li>
-                <li class="list-group-item"><code>git add &lt;file&gt;</code> - Stage a file (or <code>git add .</code> to stage all changes).</li>
-                <li class="list-group-item"><code>git commit -m "message"</code> - Commit changes with a descriptive message.</li>
-                <li class="list-group-item"><code>git pull</code> - Fetch and merge changes from a remote repository.</li>
-                <li class="list-group-item"><code>git push</code> - Push your local changes to a remote repository.</li>
-            </ul>
+        <!-- Basic Git Commands -->
+        <h4 class="text-primary mt-4 mb-3"><i class="fas fa-terminal"></i> Basic Git Commands (Every Developer Must Know)</h4>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><code>git init</code> - Initialize a new Git repository.</li>
+            <li class="list-group-item"><code>git clone &lt;url&gt;</code> - Clone a remote repository.</li>
+            <li class="list-group-item"><code>git add &lt;file&gt;</code> - Stage a file (or <code>git add .</code> to stage all changes).</li>
+            <li class="list-group-item"><code>git commit -m "message"</code> - Commit changes with a descriptive message.</li>
+            <li class="list-group-item"><code>git pull</code> - Fetch and merge changes from a remote repository.</li>
+            <li class="list-group-item"><code>git push</code> - Push your local changes to a remote repository.</li>
+        </ul>
+    </div>
+</div>
 
-            <!-- Branching & Collaboration -->
-            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-sitemap"></i> Branching & Collaboration</h4>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item"><code>git branch</code> - List all branches.</li>
-                <li class="list-group-item"><code>git checkout -b &lt;branch&gt;</code> - Create and switch to a new branch.</li>
-                <li class="list-group-item"><code>git merge &lt;branch&gt;</code> - Merge changes from one branch to another.</li>
-                <li class="list-group-item"><code>git rebase &lt;branch&gt;</code> - Reapply commits to create a clean commit history.</li>
-                <li class="list-group-item"><code>git stash</code> - Temporarily save uncommitted changes.</li>
-            </ul>
+<div class="card mb-4">
+    <div class="card-header gradient-header-green">
+        <h3>Basic Git Commands</h3>
+    </div>
+    <div class="card-body">
+        <!-- Branching & Collaboration -->
+        <h4 class="text-primary mt-4 mb-3"><i class="fas fa-sitemap"></i> Branching & Collaboration</h4>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><code>git branch</code> - List all branches.</li>
+            <li class="list-group-item"><code>git checkout -b &lt;branch&gt;</code> - Create and switch to a new branch.</li>
+            <li class="list-group-item"><code>git merge &lt;branch&gt;</code> - Merge changes from one branch to another.</li>
+            <li class="list-group-item"><code>git rebase &lt;branch&gt;</code> - Reapply commits to create a clean commit history.</li>
+            <li class="list-group-item"><code>git stash</code> - Temporarily save uncommitted changes.</li>
+        </ul>
 
-            <!-- Advanced Git Commands -->
-            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-tools"></i> Advanced Git Commands & Best Practices</h4>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item"><code>git log</code> - View commit history.</li>
-                <li class="list-group-item"><code>git reset --hard &lt;commit&gt;</code> - Reset to a specific commit, discarding changes after it.</li>
-                <li class="list-group-item"><code>git cherry-pick &lt;commit&gt;</code> - Apply a specific commit from one branch to another.</li>
-                <li class="list-group-item"><code>git reflog</code> - View the reference logs of repository updates.</li>
-                <li class="list-group-item"><code>git tag</code> - Tag a specific commit for versioning.</li>
-            </ul>
-
+        <!-- Advanced Git Commands -->
+        <h4 class="text-primary mt-4 mb-3"><i class="fas fa-tools"></i> Advanced Git Commands & Best Practices</h4>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><code>git log</code> - View commit history.</li>
+            <li class="list-group-item"><code>git reset --hard &lt;commit&gt;</code> - Reset to a specific commit, discarding changes after it.</li>
+            <li class="list-group-item"><code>git cherry-pick &lt;commit&gt;</code> - Apply a specific commit from one branch to another.</li>
+            <li class="list-group-item"><code>git reflog</code> - View the reference logs of repository updates.</li>
+            <li class="list-group-item"><code>git tag</code> - Tag a specific commit for versioning.</li>
+        </ul>
+        <div>
             <!-- Rich Resources Section -->
-            <h4 class="text-success mt-4 mb-3"><i class="fas fa-book"></i>  Resources for Learning & Practice</h4>
+            <h4 class="text-success mt-4 mb-3"><i class="fas fa-book"></i> Resources for Learning & Practice</h4>
             <ul class="list-unstyled d-flex flex-wrap justify-content-around">
                 <li><a href="https://git-scm.com/docs" class="btn btn-outline-primary mb-2">Official Git Docs</a></li>
                 <li><a href="https://git-scm.com/book/en/v2" class="btn btn-outline-primary mb-2">Pro Git Book (Free)</a></li>
@@ -68,36 +67,36 @@
                 <li><a href="https://www.udemy.com/course/git-and-github-crash-course/" class="btn btn-outline-primary mb-2">Git & GitHub Crash Course</a></li>
             </ul>
 
-            <!-- Practice Sessions -->
-            <h4 class="text-primary mt-4 mb-3"><i class="fas fa-laptop-code"></i> Practice Sessions</h4>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm rounded mb-4">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-success"><i class="fas fa-check-circle"></i> Basic</h5>
-                            <p class="card-text">Set up a repository, create a branch, and commit changes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm rounded mb-4">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-warning"><i class="fas fa-exclamation-circle"></i> Intermediate</h5>
-                            <p class="card-text">Work with multiple branches, resolve merge conflicts, and rebase branches.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 shadow-sm rounded mb-4">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-danger"><i class="fas fa-bug"></i> Advanced</h5>
-                            <p class="card-text">Cherry-pick, tag for versioning, and recover using <code>git reflog</code>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             <!-- Practice Sessions -->
+             <h4 class="text-primary mt-4 mb-3"><i class="fas fa-laptop-code"></i> Practice Sessions</h4>
+             <div class="row">
+                 <div class="col-md-4">
+                     <div class="card border-0 shadow-sm rounded mb-4">
+                         <div class="card-body text-center">
+                             <h5 class="card-title text-success"><i class="fas fa-check-circle"></i> Basic</h5>
+                             <p class="card-text">Set up a repository, create a branch, and commit changes.</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="card border-0 shadow-sm rounded mb-4">
+                         <div class="card-body text-center">
+                             <h5 class="card-title text-warning"><i class="fas fa-exclamation-circle"></i> Intermediate</h5>
+                             <p class="card-text">Work with multiple branches, resolve merge conflicts, and rebase branches.</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="card border-0 shadow-sm rounded mb-4">
+                         <div class="card-body text-center">
+                             <h5 class="card-title text-danger"><i class="fas fa-bug"></i> Advanced</h5>
+                             <p class="card-text">Cherry-pick, tag for versioning, and recover using <code>git reflog</code>.</p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
 
-            <!-- Best Practices Section -->
+             <!-- Best Practices Section -->
             <h4 class="text-success mt-4 mb-3"><i class="fas fa-lightbulb"></i> Best Practices for Git</h4>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><strong>Commit Often:</strong> Keep commits small and focused.</li>
@@ -106,98 +105,150 @@
                 <li class="list-group-item"><strong>Pull Before Push:</strong> Pull changes from remote before pushing to avoid conflicts.</li>
                 <li class="list-group-item"><strong>Merge Regularly:</strong> Regularly merge branches to reduce conflicts.</li>
             </ul>
+
+
         </div>
     </div>
 </div>
 
-</main>
+<div class="card mb-4">
+    <div class="card-header gradient-header-yellow">
+        <h3>Sample Dockerfile for Practice</h3>
+    </div>
+    <div class="card-body">
+        <pre><code># Sample Dockerfile for a Node.js Application
+FROM node:14-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port and define startup command
+EXPOSE 8080
+CMD [ "node", "server.js" ]
+        </code></pre>
+        <p>Practice building an image from this Dockerfile by running <code>docker build -t my-node-app .</code> and then running the container with <code>docker run -p 8080:8080 my-node-app</code>.</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header gradient-header-primary">
+        <h3>Practice Sets</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="font-weight-bold section-title">Exercise 1: Create and Run a Basic Docker Container</h4>
+        <p>Build and run a Docker container for a simple web server (use Node.js or Python Flask). Write a basic Dockerfile, build the image, and expose the application to your local machine.</p>
+
+        <h4 class="font-weight-bold section-title">Exercise 2: Use Docker Compose to Spin Up Multiple Containers</h4>
+        <p>Create a <code>docker-compose.yml</code> file that starts a web service and a database service. Ensure the two containers can communicate with each other.</p>
+
+        <h4 class="font-weight-bold section-title">Exercise 3: Build a Docker Swarm Cluster</h4>
+        <p>Set up a Docker Swarm cluster with at least one manager and two worker nodes. Deploy a service and observe how the swarm manages the containers.</p>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header gradient-header-red">
+        <h3>Valuable Resources & Tutorials</h3>
+    </div>
+    <div class="card-body">
+        <h4 class="font-weight-bold section-title">Essential Resources:</h4>
+        <ul class="styled-list">
+            <li><a href="https://docs.docker.com/" class="btn btn-outline-light">Official Docker Documentation</a> - Comprehensive guide to Docker concepts, commands, and usage.</li>
+            <li><a href="https://docs.docker.com/get-started/" class="btn btn-outline-light">Get Started with Docker</a> - Beginner-friendly tutorial to get started with Docker.</li>
+            <li><a href="https://www.udemy.com/course/docker-tutorial-for-devops-engineers/" class="btn btn-outline-light">Udemy: Docker Tutorial for DevOps Engineers</a> - A thorough course on Docker with a focus on DevOps workflows.</li>
+            <li><a href="https://docs.docker.com/compose/" class="btn btn-outline-light">Docker Compose Documentation</a> - Learn how to orchestrate multi-container applications using Docker Compose.</li>
+        </ul>
+
+        <h4 class="font-weight-bold section-title">Useful Code Snippets:</h4>
+        <pre><code># Example Docker Compose YAML for Node.js and MongoDB
+version: '3'
+services:
+  web:
+    image: node:14-alpine
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    command: npm start
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+        </code></pre>
+        <p>Use this Compose file to spin up a Node.js web service and a MongoDB database, then try connecting the web app to the database.</p>
+    </div>
+</div>
 
 <style>
+    h1 {
+        color: #cf4513;
+        text-align: center;
+    
+    }
     body {
         font-family: 'Poppins', sans-serif;
-        background-color: #c05547;
-        color: #fff;
-        display: flex;
-        min-height: 100vh;
+        background-color: #1c2541;
+        color: #63b31d;
     }
 
-    nav {
-        width: 250px;
-        background-color: #152b13;
-        padding: 30px 20px;
-        position: fixed;
-        height: 100%;
-        box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
-    }
-
-    nav h1 {
-        color: #29ff30;
-        font-size: 1.8rem;
-        margin-bottom: 40px;
-    }
-
-    nav ul li {
-        margin-bottom: 25px;
-    }
-
-    nav ul li a {
-        color: #1e7c8b;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-        color: #09ff00;
-    }
-
-    main {
-        margin-left: 270px;
-        padding: 50px;
-        flex: 1;
-    }
-
-    header h1 {
-        font-size: 3.5rem;
-        color: #50452c;
-        background: linear-gradient(90deg, #2980b9, #6dd5fa);
-        padding: 15px;
+    .main-title {
+        font-size: 3rem;
         text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .section {
-        margin-bottom: 30px;
+        margin: 30px 0;
+        color: #f5f3f4;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
 
     .card {
-        background-color: #292b44;
+        background-color: #2b2d42;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
+    .gradient-header-blue { background: linear-gradient(90deg, #2980b9, #6dd5fa); }
+    .gradient-header-green { background: linear-gradient(90deg, #43a047, #8bc34a); }
+    .gradient-header-yellow { background: linear-gradient(90deg, #fbc02d, #ffa000); }
+    .gradient-header-primary { background: linear-gradient(90deg, #007bff, #00bcd4); }
+    .gradient-header-red { background: linear-gradient(90deg, #d32f2f, #e57373); }
+    
     .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        color: #ffab00;
+        color: #c9a619;
+        font-size: 1.5rem;
     }
 
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-    ul li {
-        margin-bottom: 10px;
+    .styled-list {
+        list-style: none;
+        padding: 0;
         font-size: 1.1rem;
     }
 
-    ul li i {
-        margin-right: 10px;
-        color: #29ff30;
+    .styled-list li {
+        padding: 10px;
+        background: #3a3d5a;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        color: #b0bec5;
+    }
+
+    .styled-list li code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+
+    pre {
+        background: #3a3d5a;
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
     }
 </style>
-
 {% endblock %}
