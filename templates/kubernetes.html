@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Kubernetes & Orchestration </h2>
+<h1>Kubernetes & Orchestration </h1>
 <div class="card">
     <div class="card-header bg-success text-white">
         <h3>Mastering Kubernetes Commands & Best Practices</h3>
@@ -75,91 +75,71 @@
 </main>
 
 <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #0e955a;
-        color: #fff;
-        display: flex;
-        min-height: 100vh;
-    }
+    h1 {
+       color: #134bcf;
+       text-align: center;
+       font-size: 3.3rem;
+   
+   }
+   
+   body {
+       font-family: 'Poppins', sans-serif;
+       background-color: #1c2541;
+       color: #edf2f4;
+   }
 
-    nav {
-        width: 250px;
-        background-color: #13132b;
-        padding: 30px 20px;
-        position: fixed;
-        height: 100%;
-        box-shadow: 5px 0 15px rgba(158, 43, 35, 0.2);
-    }
+   .main-title {
+       font-size: 3rem;
+       text-align: center;
+       margin: 30px 0;
+       color: #f5f3f4;
+       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+   }
 
-    nav h1 {
-        color: #29ff30;
-        font-size: 1.8rem;
-        margin-bottom: 40px;
-    }
+   .card {
+       background-color: #2b2d42;
+       padding: 20px;
+       border-radius: 10px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+   }
 
-    nav ul li {
-        margin-bottom: 25px;
-    }
+   .gradient-header-blue { background: linear-gradient(90deg, #2980b9, #6dd5fa); }
+   .gradient-header-green { background: linear-gradient(90deg, #43a047, #8bc34a); }
+   .gradient-header-yellow { background: linear-gradient(90deg, #fbc02d, #ffa000); }
+   .gradient-header-primary { background: linear-gradient(90deg, #007bff, #00bcd4); }
+   .gradient-header-red { background: linear-gradient(90deg, #d32f2f, #e57373); }
+   
+   .section-title {
+       color: #ffdd57;
+       font-size: 1.5rem;
+   }
 
-    nav ul li a {
-        color: #1e7c8b;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        transition: 0.3s;
-    }
+   .styled-list {
+       list-style: none;
+       padding: 0;
+       font-size: 1.1rem;
+   }
 
-    nav ul li a:hover {
-        color: #09ff00;
-    }
+   .styled-list li {
+       padding: 10px;
+       background: #3a3d5a;
+       border-radius: 5px;
+       margin-bottom: 10px;
+       color: #b0bec5;
+   }
 
-    main {
-        margin-left: 270px;
-        padding: 50px;
-        flex: 1;
-    }
+   .styled-list li code {
+       background: rgba(255, 255, 255, 0.1);
+       padding: 3px 6px;
+       border-radius: 3px;
+   }
 
-    header h1 {
-        font-size: 3.5rem;
-        color: #2c3e50;
-        background: linear-gradient(90deg, #2980b9, #6dd5fa);
-        padding: 15px;
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .section {
-        margin-bottom: 30px;
-    }
-
-    .card {
-        background-color: #292b44;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        color: #ffab00;
-    }
-
-    ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-    ul li {
-        margin-bottom: 10px;
-        font-size: 1.1rem;
-    }
-
-    ul li i {
-        margin-right: 10px;
-        color: #29ff30;
-    }
+   pre {
+       background: #3a3d5a;
+       color: #ffffff;
+       padding: 10px;
+       border-radius: 5px;
+   }
 </style>
 
 {% endblock %}
